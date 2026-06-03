@@ -145,6 +145,9 @@ h4{font-size:19px;font-weight:600;}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
 .nav-signin{font-size:14.5px;font-weight:800;color:var(--ink-soft);padding:9px 12px;border-radius:8px;}
 .nav-signin:hover{color:var(--forest);}
+.nav-lang{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:800;color:var(--ink-soft);padding:7px 11px;border:1.5px solid var(--border);border-radius:8px;transition:background .15s,color .15s,border-color .15s;}
+.nav-lang:hover{color:var(--forest);border-color:var(--forest);background:var(--bg-alt);}
+.nav-lang svg{flex-shrink:0;}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;color:var(--ink);}
 @media(max-width:920px){
   .nav-links{position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;background:var(--bg);border-bottom:1px solid var(--border);padding:12px var(--gut) 18px;margin:0;box-shadow:var(--shadow-md);transform-origin:top;display:none;}
