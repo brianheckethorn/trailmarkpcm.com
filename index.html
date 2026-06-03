@@ -1,75 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coming Soon</title>
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrailMark PCM — Less paperwork. More ministry.</title>
+<meta name="description" content="TrailMark PCM is the all-in-one club manager for Seventh-day Adventist Pathfinder directors. Track investiture, attendance, honors, staff and background checks — without the spreadsheets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
 
-      body {
-        min-height: 100dvh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #0f172a;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: #e2e8f0;
-      }
-
-      .card {
-        text-align: center;
-        padding: 64px 48px;
-        max-width: 440px;
-      }
-
-      .dot-row {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 40px;
-      }
-
-      .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #334155;
-        animation: pulse 1.6s ease-in-out infinite;
-      }
-
-      .dot:nth-child(2) { animation-delay: .3s; }
-      .dot:nth-child(3) { animation-delay: .6s; }
-
-      @keyframes pulse {
-        0%, 80%, 100% { background: #334155; transform: scale(1); }
-        40% { background: #60a5fa; transform: scale(1.3); }
-      }
-
-      h1 {
-        font-size: 2rem;
-        font-weight: 700;
-        letter-spacing: -.5px;
-        margin-bottom: 14px;
-        color: #f1f5f9;
-      }
-
-      p {
-        font-size: 1rem;
-        color: #94a3b8;
-        line-height: 1.65;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="card">
-      <div class="dot-row">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-      <h1>Coming Soon</h1>
-      <p>We're working on something new.<br>Check back soon.</p>
+<!-- ══ NAV ══ -->
+<header class="nav">
+  <nav class="nav-inner" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect width="48" height="48" rx="12" fill="#33684B"/>
+        <path d="M12 39 C 17 31, 23 33, 25 26" stroke="#F4EEDD" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.5 6.6"/>
+        <path d="M30 9 a8.5 8.5 0 0 1 8.5 8.5 c0 6.2 -8.5 13.5 -8.5 13.5 s-8.5 -7.3 -8.5 -13.5 A8.5 8.5 0 0 1 30 9 z" fill="#DDA049"/>
+        <circle cx="30" cy="17.5" r="3.4" fill="#33684B"/>
+      </svg>
+      TrailMark <span class="pcm">PCM</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
     </div>
-  </body>
+    <div class="nav-right">
+      <a class="nav-signin" href="https://trailmark.netlify.app">Sign in</a>
+      <a class="btn btn-primary" href="https://trailmark.netlify.app">Start free</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </nav>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="topo" aria-hidden="true"><svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><pattern id="tpHero" width="360" height="270" patternUnits="userSpaceOnUse" patternTransform="rotate(-5)"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M-40 135 Q 95 60 210 125 T 440 122"/><path d="M-40 98 Q 95 26 210 82 T 440 82"/><path d="M-40 172 Q 95 116 210 170 T 440 165"/><path d="M-40 60 Q 95 6 210 46 T 440 50"/><path d="M-40 210 Q 95 224 210 214 T 440 214"/><path d="M-40 245 Q 95 258 210 250 T 440 252"/></g></pattern></defs><rect width="100%" height="100%" fill="url(#tpHero)"/></svg></div>
+  <div class="wrap hero-inner">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-badge"><span class="tag">New</span> Built for Adventist Pathfinder clubs</span>
+        <h1 class="display">Less paperwork.<br><b>More ministry.</b></h1>
+        <p class="hero-lead">TrailMark PCM keeps your whole Pathfinder club in one place — investiture progress, attendance, honors, staff and background checks — so you can spend Sabbath afternoons with your kids instead of your spreadsheets.</p>
+        <div class="cta-row">
+          <a class="btn btn-gold btn-lg" href="https://trailmark.netlify.app">Start free
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost-light btn-lg" href="features.html">See how it works</a>
+        </div>
+        <p class="cta-note" style="margin-top:20px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          30-day free trial · no credit card · keep your data forever
+        </p>
+      </div>
+      <!-- product vignette -->
+      <div class="hero-visual">
+        <div class="vig tilt">
+          <div class="vig-bar"><i style="background:#ec6a5e"></i><i style="background:#f4bf4f"></i><i style="background:#61c554"></i><span class="url">trailmark.app/roster</span></div>
+          <div class="vig-body">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+              <div style="font-family:var(--serif);font-weight:600;font-size:17px;color:var(--ink);">Bears · Companion</div>
+              <span class="u-chip">12 Pathfinders</span>
+            </div>
+            <!-- member row with split investiture bar -->
+            <div class="u-row" style="margin-bottom:8px;">
+              <div class="u-av"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><span style="font-weight:800;font-size:13px;">Sienna Park</span><span style="font-weight:900;font-size:12px;color:var(--gold-deep);">105%</span></div>
+                <div class="u-split"><div class="b" style="width:90%;"><i style="width:100%"></i></div><div class="sep"></div><div class="a"><i style="width:50%"></i></div></div>
+              </div>
+            </div>
+            <div class="u-row" style="margin-bottom:8px;">
+              <div class="u-av"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><span style="font-weight:800;font-size:13px;">Caleb Mendoza</span><span style="font-weight:900;font-size:12px;color:var(--forest);">72%</span></div>
+                <div class="u-bar"><i style="width:72%"></i></div>
+              </div>
+            </div>
+            <div class="u-row">
+              <div class="u-av"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><span style="font-weight:800;font-size:13px;">Ava Whitfield</span><span class="u-chip" style="background:var(--info-tint);color:var(--info);">Ready</span></div>
+                <div class="u-bar"><i style="width:100%;background:var(--success);"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST STRIP ══ -->
+<section class="sec-sm" style="padding-block:36px;border-bottom:1px solid var(--border);">
+  <div class="wrap">
+    <p class="center sub" style="font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 22px;">Made by Pathfinder leaders, for Pathfinder leaders</p>
+    <div class="statband">
+      <div class="s center"><div class="n">6</div><div class="l">Investiture levels tracked</div></div>
+      <div class="s center"><div class="n">500<span class="gold">+</span></div><div class="l">Honors, ready to log</div></div>
+      <div class="s center"><div class="n">1</div><div class="l">Place for your whole club</div></div>
+      <div class="s center"><div class="n">0</div><div class="l">Spreadsheets required</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROBLEM ══ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Sound familiar?</span>
+      <h2>Running a club shouldn't feel like a second job.</h2>
+      <p class="lead">Most directors are volunteers with a day job, a family, and a heart for kids. The admin shouldn't be the hard part.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="prob reveal">
+        <div class="x"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h4>The spreadsheet maze</h4>
+        <p>One sheet for attendance, another for honors, a third for dues — none of them agree, and only one person knows where they live.</p>
+      </div>
+      <div class="prob reveal">
+        <div class="x"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13l2 2 4-4"/></svg></div>
+        <h4>Paper record cards</h4>
+        <p>Investiture requirements checked off in pencil, stuffed in a binder, and quietly lost the summer a family moves away.</p>
+      </div>
+      <div class="prob reveal">
+        <div class="x"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg></div>
+        <h4>Who's cleared to serve?</h4>
+        <p>Background checks expire, certifications lapse, and you find out the week before camporee when it's far too late to fix.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURES BENTO ══ -->
+<section class="sec" style="background:var(--bg-alt);border-block:1px solid var(--border);">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">One club, one place</span>
+      <h2>Everything your club needs, nothing it doesn't.</h2>
+      <p class="lead">Purpose-built around the way Adventist clubs actually run — the levels, the honors, the points, the people.</p>
+    </div>
+    <div class="bento">
+      <div class="card feature span3 reveal">
+        <div class="f-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12c0-3 2-5 5-5 0 3-2 5-5 5zM12 14c0-3-2-5-5-5 0 3 2 5 5 5z"/></svg></div>
+        <h3>Investiture tracking</h3>
+        <p>Every requirement for Friend through Guide, checked off and rolled up into a live progress bar — with a gold over-100% marker for Advanced.</p>
+      </div>
+      <div class="card feature span3 reveal">
+        <div class="f-ic gold"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></svg></div>
+        <h3>Honors &amp; awards</h3>
+        <p>Award honors, stars and chips from a built-in catalog, and watch each Pathfinder's sash fill up over the year.</p>
+      </div>
+      <div class="card feature span2 reveal">
+        <div class="f-ic info"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h3>Attendance &amp; points</h3>
+        <p>Mark meetings in seconds and let conference-style point standings tally themselves.</p>
+      </div>
+      <div class="card feature span2 reveal">
+        <div class="f-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Staff &amp; background checks</h3>
+        <p>Keep your committee, roles and screening status current — and get a nudge before anything expires.</p>
+      </div>
+      <div class="card feature span2 reveal">
+        <div class="f-ic gold"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Certificates &amp; reports</h3>
+        <p>Generate investiture certificates and director reports your conference will actually accept — in a click.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SPLIT: Investiture ══ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="split reveal">
+      <div>
+        <span class="eyebrow">The heart of it</span>
+        <h2>Watch every Pathfinder grow.</h2>
+        <p class="sub" style="font-size:18px;margin-top:14px;">Open any child and see exactly where they stand — by track, by requirement, by level. No more flipping through a binder to answer "what does she have left?"</p>
+        <ul class="feat-list">
+          <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Requirements grouped by track, with live per-track progress</li>
+          <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> A split progress bar that turns gold past 100% for Advanced</li>
+          <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Baptism, family &amp; medical notes kept right where you need them</li>
+          <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> A "Ready to Invest" flag the moment a level is complete</li>
+        </ul>
+      </div>
+      <div class="split-media">
+        <div class="vig">
+          <div class="vig-bar"><i style="background:#ec6a5e"></i><i style="background:#f4bf4f"></i><i style="background:#61c554"></i></div>
+          <div class="vig-body">
+            <div style="background:linear-gradient(135deg,color-mix(in oklch,var(--lv-companion) 8%,transparent),transparent);border:1px solid color-mix(in oklch,var(--lv-companion) 22%,transparent);border-radius:12px;padding:14px;margin-bottom:10px;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;"><div><div style="font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);">Investiture Progress</div><div style="font-size:13px;font-weight:700;margin-top:2px;">Companion · Advanced</div></div><span style="font-family:var(--serif);font-weight:600;font-size:26px;color:var(--lv-companion);">105%</span></div>
+              <div class="u-split"><div class="b" style="width:90%;"><i style="width:100%"></i></div><div class="sep"></div><div class="a"><i style="width:50%"></i></div></div>
+              <div style="display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;">
+                <span class="u-chip" style="background:color-mix(in oklch,var(--lv-companion) 12%,transparent);color:var(--lv-companion);">Personal Growth 4/4</span>
+                <span class="u-chip" style="background:color-mix(in oklch,var(--lv-companion) 12%,transparent);color:var(--lv-companion);">Nature 3/3</span>
+                <span class="u-chip" style="background:color-mix(in oklch,var(--lv-companion) 12%,transparent);color:var(--lv-companion);">Outdoor 2/2</span>
+              </div>
+            </div>
+            <div class="u-row" style="margin-bottom:7px;"><div class="u-av" style="background:var(--lv-companion);color:#fff;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div><div style="flex:1;"><div style="font-weight:800;font-size:12px;">Serving Others</div></div><span class="u-chip" style="background:color-mix(in oklch,var(--lv-companion) 12%,transparent);color:var(--lv-companion);">Done</span></div>
+            <div class="u-row"><div class="u-av"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12M12 12c0-3 2-5 5-5 0 3-2 5-5 5z"/></svg></div><div style="flex:1;"><div style="font-weight:800;font-size:12px;">Making Friends</div></div><span class="u-chip">2/3</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SPLIT: Staff / checks (reverse) ══ -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="split reverse reveal">
+      <div>
+        <span class="eyebrow">Peace of mind</span>
+        <h2>Know your team is cleared to serve.</h2>
+        <p class="sub" style="font-size:18px;margin-top:14px;">Child safety isn't optional. TrailMark keeps every staff member's role, certification and background-check status in one roster — and flags what's missing before it becomes a problem.</p>
+        <ul class="feat-list">
+          <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Executive and staff committees, organized the conference way</li>
+          <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Verified-Volunteer and background-check status at a glance</li>
+          <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Invite staff by email so they can keep their own info current</li>
+        </ul>
+      </div>
+      <div class="split-media">
+        <div class="vig">
+          <div class="vig-bar"><i style="background:#ec6a5e"></i><i style="background:#f4bf4f"></i><i style="background:#61c554"></i></div>
+          <div class="vig-body">
+            <div class="u-row" style="margin-bottom:8px;"><div class="u-av"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div style="flex:1;min-width:0;"><div style="font-weight:800;font-size:13px;">Brian H. <span style="font-weight:700;color:var(--muted);font-size:11px;">· Director</span></div><div style="display:flex;gap:5px;margin-top:5px;flex-wrap:wrap;"><span class="u-chip" style="background:var(--forest-tint);color:var(--success);display:inline-flex;align-items:center;gap:3px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg> VV</span><span class="u-chip" style="background:var(--forest-tint);color:var(--success);">BG: Current</span></div></div></div>
+            <div class="u-row" style="margin-bottom:8px;"><div class="u-av"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div style="flex:1;min-width:0;"><div style="font-weight:800;font-size:13px;">Emily H. <span style="font-weight:700;color:var(--muted);font-size:11px;">· Counselor</span></div><div style="display:flex;gap:5px;margin-top:5px;"><span class="u-chip" style="background:var(--danger-tint);color:var(--danger);display:inline-flex;align-items:center;gap:3px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg> BG: Not on file</span></div></div><span class="u-chip" style="background:var(--info-tint);color:var(--info);">Invite</span></div>
+            <div class="u-row"><div class="u-av"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div style="flex:1;min-width:0;"><div style="font-weight:800;font-size:13px;">Diana N. <span style="font-weight:700;color:var(--muted);font-size:11px;">· Counselor</span></div><div style="display:flex;gap:5px;margin-top:5px;"><span class="u-chip" style="background:var(--danger-tint);color:var(--danger);display:inline-flex;align-items:center;gap:3px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg> BG: Not on file</span></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMING SOON ══ -->
+<section class="sec" style="background:var(--bg-alt);border-block:1px solid var(--border);">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">On the trail ahead</span>
+      <h2>Built for Pathfinders today. Your whole ministry tomorrow.</h2>
+      <p class="lead">Adventurer Club and Master Guide tracking are in the works — same simple tools, shaped around each program. Leave your email and you'll be first in.</p>
+    </div>
+    <div class="soon-grid">
+      <div class="soon adv reveal">
+        <div class="topo" aria-hidden="true"><svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><pattern id="tpAdv" width="300" height="220" patternUnits="userSpaceOnUse" patternTransform="rotate(-6)"><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M-30 110 Q 80 50 170 105 T 360 100"/><path d="M-30 78 Q 80 22 170 68 T 360 66"/><path d="M-30 145 Q 80 96 170 145 T 360 140"/><path d="M-30 180 Q 80 196 170 188 T 360 188"/></g></pattern></defs><rect width="100%" height="100%" fill="url(#tpAdv)"/></svg></div>
+        <div class="soon-inner">
+          <span class="soon-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Coming soon</span>
+          <h3>Adventurer Club Manager</h3>
+          <p>For your littlest members in grades 1–4 — track the six Adventurer classes, stars, chips and awards, with the parent involvement the program is built around.</p>
+          <div class="soon-meta">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Grades 1–4</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></svg> Stars · Chips · Awards</span>
+          </div>
+          <form class="notify" data-notify>
+            <input type="email" required placeholder="you@church.org" aria-label="Email for Adventurer updates">
+            <button type="submit">Notify me</button>
+          </form>
+        </div>
+      </div>
+      <div class="soon mg reveal">
+        <div class="topo" aria-hidden="true"><svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><pattern id="tpMg" width="300" height="220" patternUnits="userSpaceOnUse" patternTransform="rotate(-6)"><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M-30 110 Q 80 50 170 105 T 360 100"/><path d="M-30 78 Q 80 22 170 68 T 360 66"/><path d="M-30 145 Q 80 96 170 145 T 360 140"/><path d="M-30 180 Q 80 196 170 188 T 360 188"/></g></pattern></defs><rect width="100%" height="100%" fill="url(#tpMg)"/></svg></div>
+        <div class="soon-inner">
+          <span class="soon-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Coming soon</span>
+          <h3>Master Guide Manager</h3>
+          <p>Guide candidates through the highest level of invested leadership — requirements, mentorship, spiritual and leadership development, all the way to investiture.</p>
+          <div class="soon-meta">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-4-6 4 1.5-7L2 9.5 9 9z"/></svg> Highest invested leadership</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> Training &amp; mentorship</span>
+          </div>
+          <form class="notify" data-notify>
+            <input type="email" required placeholder="you@church.org" aria-label="Email for Master Guide updates">
+            <button type="submit">Notify me</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <p class="center sub" style="margin-top:24px;font-size:14px;">See the full plan on our <a href="roadmap.html" style="color:var(--forest);font-weight:800;text-decoration:underline;text-underline-offset:2px;">roadmap</a>.</p>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">From the field</span>
+      <h2>Directors get their evenings back.</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal">
+        <div class="mark">&ldquo;</div>
+        <p>I used to spend the whole week before investiture cross-checking record cards. This year I clicked a button and printed every certificate in ten minutes.</p>
+        <div class="who"><div class="av">RM</div><div><div class="nm">Rosa M.</div><div class="ro">Club Director · placeholder</div></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="mark">&ldquo;</div>
+        <p>Our staff background checks finally stopped slipping through the cracks. The roster tells me who's cleared before I ever schedule a campout.</p>
+        <div class="who"><div class="av">DT</div><div><div class="nm">Daniel T.</div><div class="ro">Area Coordinator · placeholder</div></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="mark">&ldquo;</div>
+        <p>The kids love seeing their own progress bar fill up. It turned a paper checklist into something they're actually excited about.</p>
+        <div class="who"><div class="av">JK</div><div><div class="nm">Joy K.</div><div class="ro">Counselor · placeholder</div></div></div>
+      </div>
+    </div>
+    <p class="center sub" style="margin-top:20px;font-size:13px;font-style:italic;">Placeholder quotes — swap in real director stories before launch.</p>
+  </div>
+</section>
+
+<!-- ══ MISSION KICKER ══ -->
+<section class="sec-sm" style="padding-bottom:clamp(48px,6vw,84px);">
+  <div class="wrap-narrow">
+    <div class="kicker-card reveal">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M5 7l7-5 7 5M5 7v10l7 5 7-5V7"/></svg></div>
+      <p><strong>The point was never the paperwork.</strong> It's the kid who learns to tie a bowline, the teen who decides to be baptized, the friendships forged on a muddy campout. TrailMark exists to give that time back to ministry — so the tools serve the mission, not the other way around.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA BAND ══ -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="ctaband reveal">
+      <div class="topo" aria-hidden="true"><svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><pattern id="tpCta" width="320" height="240" patternUnits="userSpaceOnUse" patternTransform="rotate(-5)"><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M-30 120 Q 85 55 180 115 T 380 110"/><path d="M-30 86 Q 85 26 180 76 T 380 74"/><path d="M-30 156 Q 85 104 180 156 T 380 150"/><path d="M-30 52 Q 85 6 180 42 T 380 44"/><path d="M-30 192 Q 85 206 180 198 T 380 200"/></g></pattern></defs><rect width="100%" height="100%" fill="url(#tpCta)"/></svg></div>
+      <div class="ctaband-inner">
+        <h2>Start your free trial this week.</h2>
+        <p>Thirty days, full access, no credit card. If it's not for you, your data stays yours — exportable, always.</p>
+        <div class="cta-row">
+          <a class="btn btn-gold btn-lg" href="https://trailmark.netlify.app">Start free</a>
+          <a class="btn btn-ghost-light btn-lg" href="pricing.html">See pricing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="topo" aria-hidden="true"><svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><pattern id="tpFoot" width="340" height="240" patternUnits="userSpaceOnUse"><g fill="none" stroke="currentColor" stroke-width="1"><path d="M-30 120 Q 90 60 190 118 T 400 114"/><path d="M-30 86 Q 90 30 190 78 T 400 76"/><path d="M-30 158 Q 90 108 190 156 T 400 150"/></g></pattern></defs><rect width="100%" height="100%" fill="url(#tpFoot)"/></svg></div>
+  <div class="wrap footer-inner">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#33684B"/><path d="M12 39 C 17 31, 23 33, 25 26" stroke="#F4EEDD" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.5 6.6"/><path d="M30 9 a8.5 8.5 0 0 1 8.5 8.5 c0 6.2 -8.5 13.5 -8.5 13.5 s-8.5 -7.3 -8.5 -13.5 A8.5 8.5 0 0 1 30 9 z" fill="#DDA049"/><circle cx="30" cy="17.5" r="3.4" fill="#33684B"/></svg>
+          TrailMark <span class="pcm">PCM</span>
+        </a>
+        <p class="footer-blurb">The all-in-one club manager for Seventh-day Adventist Pathfinder leaders. Less paperwork, more ministry.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://trailmark.netlify.app">Sign in</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Programs</h5>
+        <a href="features.html">Pathfinders</a>
+        <a href="roadmap.html">Adventurers <span style="font-size:11px;color:var(--gold);">· soon</span></a>
+        <a href="roadmap.html">Master Guides <span style="font-size:11px;color:var(--gold);">· soon</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TrailMark PCM. An independent tool — not affiliated with or endorsed by the General Conference of Seventh-day Adventists.</span>
+      <span class="scripture">"Train up a child in the way he should go." — Proverbs 22:6</span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
 </html>
