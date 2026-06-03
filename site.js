@@ -1,5 +1,7 @@
 /* TrailMark PCM marketing — shared behavior */
 (function(){
+  var CONTACT_ENDPOINT = "https://drflivnlnkhzrsatrkrg.supabase.co/functions/v1/contact-form";
+
   // mobile nav toggle
   function initNav(){
     var t=document.querySelector('.nav-toggle');
@@ -23,27 +25,54 @@
     },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
     els.forEach(function(e){io.observe(e);});
   }
-  // notify / signup forms — friendly inline confirmation (no backend)
+  // POST a form payload to the Resend-backed edge function
+  function send(payload){
+    return fetch(CONTACT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ if(!r.ok) throw new Error('bad'); return r.json(); });
+  }
+  function fail(btn){
+    if(btn){ btn.disabled=false; if(btn.dataset.label!=null) btn.innerHTML=btn.dataset.label; }
+    alert('Sorry — something went wrong. Please email contact@trailmarkpcm.com directly.');
+  }
+  // notify + contact forms → deliver to contact@trailmarkpcm.com via Resend
   function initForms(){
     document.querySelectorAll('[data-notify]').forEach(function(form){
       form.addEventListener('submit',function(e){
         e.preventDefault();
-        var input=form.querySelector('input');
-        var val=input?input.value.trim():'';
-        var done=document.createElement('div');
-        done.style.cssText='font-size:14px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px;padding:11px 4px;';
-        done.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Thanks — we\u2019ll email you the moment it\u2019s ready.';
-        form.replaceWith(done);
+        var input=form.querySelector('input[type=email]')||form.querySelector('input');
+        var email=input?input.value.trim():'';
+        if(!email) return;
+        var hp=form.querySelector('input[name=company]');
+        var btn=form.querySelector('button');
+        if(btn){ btn.dataset.label=btn.innerHTML; btn.disabled=true; btn.textContent='Sending…'; }
+        send({type:'notify',email:email,product:form.getAttribute('data-product')||'',_gotcha:hp?hp.value:''})
+          .then(function(){
+            var done=document.createElement('div');
+            done.style.cssText='font-size:14px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px;padding:11px 4px;';
+            done.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Thanks — we’ll email you the moment it’s ready.';
+            form.replaceWith(done);
+          })
+          .catch(function(){ fail(btn); });
       });
     });
     document.querySelectorAll('[data-contact]').forEach(function(form){
       form.addEventListener('submit',function(e){
         e.preventDefault();
-        var card=form.closest('[data-contact-card]')||form;
-        var msg=document.createElement('div');
-        msg.style.cssText='text-align:center;padding:20px 0;';
-        msg.innerHTML='<div style="width:56px;height:56px;border-radius:16px;background:var(--forest-tint);color:var(--forest);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><h3 style="margin:0 0 8px;">Message received</h3><p class="sub" style="margin:0;">We reply to every note within two business days — usually much faster. Watch your inbox.</p>';
-        form.replaceWith(msg);
+        function v(id){ var el=form.querySelector('#'+id); return el?el.value.trim():''; }
+        var email=v('email');
+        if(!email){ alert('Please enter your email.'); return; }
+        var hp=form.querySelector('input[name=company]');
+        var btn=form.querySelector('button[type=submit]');
+        if(btn){ btn.dataset.label=btn.innerHTML; btn.disabled=true; btn.textContent='Sending…'; }
+        send({type:'contact',name:v('name'),email:email,club:v('club'),topic:v('topic'),message:v('msg'),_gotcha:hp?hp.value:''})
+          .then(function(){
+            var card=form.closest('[data-contact-card]')||form;
+            var msg=document.createElement('div');
+            msg.style.cssText='text-align:center;padding:20px 0;';
+            msg.innerHTML='<div style="width:56px;height:56px;border-radius:16px;background:var(--forest-tint);color:var(--forest);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><h3 style="margin:0 0 8px;">Message received</h3><p class="sub" style="margin:0;">We reply to every note within two business days — usually much faster. Watch your inbox.</p>';
+            (card||form).replaceWith(msg);
+          })
+          .catch(function(){ fail(btn); });
       });
     });
   }
