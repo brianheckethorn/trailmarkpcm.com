@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security &amp; Privacy — TrailMark PCM</title>
+<meta name="description" content="How TrailMark PCM protects youth-ministry data: tenant isolation, role-based access, encryption, audit logging, and privacy by design. Building toward SOC 2 readiness.">
+<!-- Unlisted: shareable with customers, kept out of search indexes. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="trailmark-icon-256.png">
+<link rel="apple-touch-icon" href="trailmark-icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E3A5F;--navy-2:#23456E;--navy-deep:#152A45;--navy-deepest:#0F2036;
+  --gold:#C9A24B;--gold-br:#E3C57E;--gold-dp:#9C7C32;
+  --forest:#33684B;--forest-2:#3E7C5A;--adv:#2E7BC4;
+  --paper:#F7F2E6;--paper-2:#F1EAD7;--card:#FFFFFF;
+  --ink:#1B2A38;--ink-soft:#3C4D5C;--muted:#65788A;--dim:#8A9AA8;
+  --line:#E6DEC9;--line-cool:#DCE4EC;
+  --sky-tint:#EAF2FA;--forest-tint:#E7F0EA;--gold-tint:#F6ECD2;--navy-tint:#E8EDF3;
+  --shadow-sm:0 1px 2px rgba(21,42,69,.05),0 2px 8px -3px rgba(21,42,69,.08);
+  --shadow-md:0 4px 14px -6px rgba(21,42,69,.14),0 18px 40px -24px rgba(21,42,69,.26);
+  --maxw:1140px;--gut:clamp(20px,5vw,56px);--r:18px;--r-lg:26px;
+  --sans:'Nunito',system-ui,-apple-system,sans-serif;--serif:'Fraunces',Georgia,serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:17px;line-height:1.6;font-weight:500;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacing:-.014em;margin:0;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut);}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--gold-dp);margin:0 0 16px;}
+.eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor;opacity:.75;}
+.eyebrow.on-dark{color:var(--gold-br);}
+.section{padding-block:clamp(52px,7vw,92px);position:relative;}
+.lead{font-size:clamp(17px,1.9vw,20px);line-height:1.55;color:var(--ink-soft);text-wrap:pretty;}
+.sec-head{max-width:720px;margin:0 0 clamp(30px,4vw,48px);}
+.sec-head.center{margin-inline:auto;text-align:center;}
+.sec-head.center .eyebrow{justify-content:center;}
+.sec-head h2{font-size:clamp(26px,3.4vw,38px);}
+.sec-head p{margin:15px 0 0;}
+.topo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden;}
+.topo svg{width:100%;height:100%;}
+.band{position:relative;}
+.band::before,.band::after{content:"";position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.8;}
+.band::before{top:0;}.band::after{bottom:0;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:999px;font-family:var(--sans);font-weight:800;font-size:15px;line-height:1;padding:15px 26px;transition:transform .14s,background .18s,box-shadow .18s,color .18s,border-color .18s;white-space:nowrap;}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--gold);color:#3a2710;box-shadow:0 10px 24px -10px rgba(201,162,75,.7);}
+.btn-primary:hover{background:var(--gold-br);}
+.btn-ghost-light{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.32);}
+.btn-ghost-light:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.6);}
+.btn-lg{padding:17px 30px;font-size:16px;}
+/* nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(247,242,230,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-inner{display:flex;align-items:center;gap:26px;height:68px;max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut);}
+.brand{display:inline-flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:-.01em;color:var(--ink);}
+.brand .pcm{font-family:var(--sans);font-weight:800;font-size:10.5px;letter-spacing:.14em;color:var(--navy);background:var(--navy-tint);border-radius:6px;padding:3px 6px;transform:translateY(-1px);}
+.brand-mark{width:34px;height:34px;flex-shrink:0;border-radius:9px;box-shadow:var(--shadow-sm);}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:14px;}
+.nav-back{font-size:14px;font-weight:700;color:var(--ink-soft);padding:9px 13px;border-radius:9px;}
+.nav-back:hover{background:rgba(255,255,255,.7);color:var(--navy);}
+/* hero */
+.phead{position:relative;overflow:hidden;background:radial-gradient(120% 95% at 82% -10%,var(--navy-2),transparent 55%),linear-gradient(165deg,var(--navy-deepest),var(--navy-deep));color:#fff;}
+.phead .topo{color:rgba(255,255,255,.09);}
+.phead-in{position:relative;z-index:2;padding-block:clamp(48px,7vw,84px);max-width:780px;}
+.phead h1{color:#fff;font-size:clamp(32px,4.6vw,52px);line-height:1.02;letter-spacing:-.02em;}
+.phead h1 .gold{color:var(--gold-br);}
+.phead p{color:rgba(255,255,255,.82);font-size:clamp(16px,1.8vw,20px);line-height:1.5;margin-top:20px;max-width:40em;}
+.pill{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 15px 7px 9px;font-size:12.5px;font-weight:800;color:rgba(255,255,255,.92);margin-bottom:22px;}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--gold-br);box-shadow:0 0 0 3px rgba(227,197,126,.3);}
+/* cards grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:620px){.grid{grid-template-columns:1fr;}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);}
+.card .ic{width:46px;height:46px;border-radius:13px;background:var(--forest-tint);color:var(--forest);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.card.sky .ic{background:var(--sky-tint);color:var(--adv);}
+.card.gold .ic{background:var(--gold-tint);color:var(--gold-dp);}
+.card.navy .ic{background:var(--navy-tint);color:var(--navy);}
+.card h4{font-family:var(--serif);font-size:19px;margin-bottom:7px;}
+.card p{margin:0;font-size:14.5px;line-height:1.55;color:var(--muted);font-weight:600;}
+/* checklist */
+.checks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+@media(max-width:680px){.checks{grid-template-columns:1fr;}}
+.checks li{display:flex;gap:12px;align-items:flex-start;font-size:15px;font-weight:600;color:var(--ink-soft);}
+.checks .tick{width:22px;height:22px;border-radius:7px;background:var(--forest-tint);color:var(--forest);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.checks b{color:var(--ink);font-weight:800;}
+/* readiness note */
+.note{background:var(--navy-tint);border:1px solid var(--line-cool);border-radius:var(--r);padding:clamp(22px,3vw,32px);}
+.note h3{font-size:22px;margin-bottom:10px;}
+.note p{margin:0 0 12px;font-size:15.5px;line-height:1.6;color:var(--ink-soft);font-weight:600;}
+.note p:last-child{margin-bottom:0;}
+.note .tag{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dp);background:var(--gold-tint);border-radius:6px;padding:4px 9px;margin-bottom:14px;}
+/* vendors */
+.vend{display:flex;flex-wrap:wrap;gap:12px;}
+.vend .v{display:flex;flex-direction:column;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;min-width:150px;flex:1;}
+.vend .v b{font-size:15px;color:var(--ink);font-weight:800;}
+.vend .v span{font-size:12.5px;color:var(--muted);font-weight:600;}
+/* CTA */
+.cta{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--navy-deep),var(--navy-deepest));color:#fff;}
+.cta .topo{color:rgba(255,255,255,.08);}
+.cta-in{position:relative;z-index:2;text-align:center;max-width:640px;margin:0 auto;}
+.cta h2{color:#fff;font-size:clamp(26px,3.6vw,38px);}
+.cta p{color:rgba(255,255,255,.8);font-size:17px;margin:14px 0 28px;}
+/* footer */
+.footer{background:var(--navy-deepest);color:rgba(255,255,255,.6);}
+.footer-in{padding-block:36px 26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;}
+.footer .brand{color:#fff;}.footer .brand .pcm{background:rgba(255,255,255,.14);color:#fff;}
+.footer small{display:block;color:rgba(255,255,255,.5);font-size:13px;margin-top:8px;max-width:52ch;line-height:1.5;}
+.footer .scripture{font-family:var(--serif);font-style:italic;color:rgba(255,255,255,.6);font-size:14px;}
+.updated{font-size:13px;font-weight:700;color:var(--dim);}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <pattern id="topo" width="340" height="250" patternUnits="userSpaceOnUse" patternTransform="rotate(-6)">
+    <g fill="none" stroke="currentColor" stroke-width="1.3">
+      <path d="M-40 130 Q 100 55 215 122 T 450 120"/><path d="M-40 96 Q 100 22 215 80 T 450 80"/>
+      <path d="M-40 170 Q 100 110 215 168 T 450 162"/><path d="M-40 60 Q 100 4 215 46 T 450 50"/>
+      <path d="M-40 208 Q 100 222 215 214 T 450 214"/><path d="M-40 245 Q 100 258 215 250 T 450 252"/>
+    </g>
+  </pattern>
+</defs></svg>
+
+<!-- NAV -->
+<header class="nav">
+  <nav class="nav-inner" aria-label="Primary">
+    <a class="brand" href="/">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect width="48" height="48" rx="12" fill="#1E3A5F"/>
+        <path d="M12 39 C 17 31, 23 33, 25 26" stroke="#F4EEDD" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.5 6.6"/>
+        <path d="M30 9 a8.5 8.5 0 0 1 8.5 8.5 c0 6.2 -8.5 13.5 -8.5 13.5 s-8.5 -7.3 -8.5 -13.5 A8.5 8.5 0 0 1 30 9 z" fill="#C9A24B"/>
+        <circle cx="30" cy="17.5" r="3.4" fill="#1E3A5F"/>
+      </svg>
+      TrailMark <span class="pcm">PCM</span>
+    </a>
+    <div class="nav-right">
+      <a class="nav-back" href="/">← Back to site</a>
+      <a class="btn btn-primary" style="font-size:13.5px;padding:11px 18px;" href="/#contact">Contact us</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="phead">
+  <div class="topo" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#topo)"/></svg></div>
+  <div class="wrap phead-in">
+    <span class="pill"><span class="dot"></span> Security &amp; Privacy Overview</span>
+    <h1>Trusted with your<br><span class="gold">kids' information.</span></h1>
+    <p>Youth ministry runs on trust — and TrailMark holds some of the most sensitive data a church keeps: children's names, birthdates, medical and allergy notes, and emergency contacts. This page explains, in plain language, how we protect it and how we're building toward a formal <b>SOC&nbsp;2</b> posture.</p>
+  </div>
+</section>
+
+<!-- HOW WE PROTECT DATA -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How we protect your data</span>
+      <h2>Security built in, not bolted on.</h2>
+      <p class="lead">TrailMark is architected so that the right people see the right data — and no one else — enforced by the database itself, not just the screen.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h4>Each club's data is walled off</h4>
+        <p>Every church's roster is isolated at the database level. One club can never read another club's data — tenant separation is enforced by row-level security on every request.</p>
+      </div>
+      <div class="card sky">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="m17 11 2 2 4-4"/></svg></div>
+        <h4>Right people, right access</h4>
+        <p>Clear roles from conference down to program director. Each leader sees what their role needs and nothing more — and those limits are checked on the server, so they hold even outside the app screen.</p>
+      </div>
+      <div class="card gold">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h4>Encrypted in transit &amp; at rest</h4>
+        <p>All traffic is served over HTTPS, and data is encrypted at rest by our cloud database provider. Sensitive credentials and API keys are never exposed to the browser.</p>
+      </div>
+      <div class="card navy">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><circle cx="12" cy="16" r="1.6"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h4>Extra sign-in security for leaders</h4>
+        <p>Accounts with the broadest reach — conference and platform administrators — are prompted to enable two-factor authentication, so a password alone can't open the field-wide view.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div>
+        <h4>Sensitive changes are logged</h4>
+        <p>Edits to children's medical, guardian, and emergency information are recorded to an append-only trail — capturing who changed what and when, without ever storing the values themselves.</p>
+      </div>
+      <div class="card sky">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 15.5h.01"/></svg></div>
+        <h4>Family &amp; medical, need-to-know</h4>
+        <p>Family, medical, and emergency details are shown only to the caregiving roles that need them. Finance- and support-only roles work with the roster without ever seeing a child's medical record.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY & CHILDREN -->
+<section class="section band" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Privacy &amp; children</span>
+      <h2>Data minimization, by design.</h2>
+      <p class="lead">We collect only what a club needs to run its program, and we share the least necessary at every level. Children's data is never sold, and never used for advertising or profiling.</p>
+    </div>
+    <ul class="checks">
+      <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Parents see only their own child.</b> The parent portal returns a family's own child record — never the club roster or any other family's information.</span></li>
+      <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Conferences see counts, not medical.</b> Oversight dashboards and reports receive membership totals and progress summaries — not children's medical, contact, or birthdate details.</span></li>
+      <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Consent is captured &amp; recorded.</b> Parent registration records the exact policy and terms version a parent agreed to, with a durable, tamper-resistant consent record.</span></li>
+      <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Families can access &amp; delete.</b> Parents can review and update their child's information and request deletion of their data.</span></li>
+      <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Your records, exportable.</b> A club's data belongs to the ministry that entered it and can be exported at any time.</span></li>
+      <li><span class="tick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>No trackers, no ad networks.</b> TrailMark does not embed advertising trackers or sell personal data — from anyone, child or adult.</span></li>
+    </ul>
+    <p style="margin-top:22px;font-size:13.5px;color:var(--muted);font-weight:600;max-width:64ch;">TrailMark supports clubs in meeting their obligations under children's-privacy laws such as COPPA. This overview describes our practices and is not legal advice; a club's specific obligations should be confirmed with its own counsel.</p>
+  </div>
+</section>
+
+<!-- RELIABILITY + INFRA -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Reliability &amp; infrastructure</span>
+      <h2>Run on trusted foundations.</h2>
+      <p class="lead">TrailMark is built on established, security-conscious cloud providers — not a homemade server in someone's closet.</p>
+    </div>
+    <div class="grid" style="margin-bottom:26px;">
+      <div class="card navy">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.6"/><path d="M21 3v6h-6"/></svg></div>
+        <h4>Daily backups, restore-tested</h4>
+        <p>The database is backed up automatically every day, and we periodically verify that a backup actually restores — so the safety net is real, not theoretical.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Bot &amp; abuse protection</h4>
+        <p>Sign-up and sign-in are protected against automated abuse, and dependencies are continuously scanned for known vulnerabilities.</p>
+      </div>
+      <div class="card gold">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg></div>
+        <h4>Independent, reviewed changes</h4>
+        <p>Changes that touch access, roles, or child data go through an adversarial review before release, and security-relevant work is tracked against a written readiness program.</p>
+      </div>
+    </div>
+    <div class="vend">
+      <div class="v"><b>Supabase</b><span>Database, auth &amp; APIs (on AWS)</span></div>
+      <div class="v"><b>Amazon Web Services</b><span>Underlying cloud hosting</span></div>
+      <div class="v"><b>Netlify</b><span>Web app delivery (CDN)</span></div>
+      <div class="v"><b>Cloudflare</b><span>Bot protection</span></div>
+      <div class="v"><b>Resend</b><span>Transactional email</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOC 2 READINESS -->
+<section class="section band" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="note">
+      <span class="tag">SOC 2 — readiness in progress</span>
+      <h3>Where we are on SOC&nbsp;2.</h3>
+      <p>TrailMark is being built toward <b>SOC&nbsp;2 readiness</b> across the Security, Confidentiality, and Privacy trust-services criteria. We maintain a written readiness program — a control register, data inventory, access-control model, and operational policies — that guides how we design and ship.</p>
+      <p>To be clear and honest: <b>TrailMark is not yet SOC&nbsp;2 audited or certified, and we don't claim to be.</b> A SOC&nbsp;2 report can only be issued by an independent auditor. This page describes the controls that are in place today and the direction we're building — we're happy to walk your team through it in detail.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta band">
+  <div class="topo" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#topo)"/></svg></div>
+  <div class="wrap cta-in">
+    <span class="eyebrow on-dark" style="justify-content:center;">Questions?</span>
+    <h2>Doing your due diligence?</h2>
+    <p>We're glad to answer security and privacy questions for your conference or church — in detail, and in writing.</p>
+    <a class="btn btn-primary btn-lg" href="mailto:contact@trailmarkpcm.com?subject=TrailMark%20security%20%26%20privacy%20questions">Contact us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div>
+      <a class="brand" href="/">TrailMark <span class="pcm">PCM</span></a>
+      <small>An independent tool for Seventh-day Adventist youth ministry — not affiliated with or endorsed by the General Conference of Seventh-day Adventists. This overview is provided for prospective and current customers and does not constitute a contract or legal advice.</small>
+      <span class="updated">Last updated July 2026</span>
+    </div>
+    <span class="scripture">"Train up a child in the way he should go." — Proverbs 22:6</span>
+  </div>
+</footer>
+
+</body>
+</html>

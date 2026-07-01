@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Release Notes — TrailMark PCM</title>
+<meta name="description" content="What's new in TrailMark PCM — product updates and new features across Adventurers, Pathfinders, Master Guide, and the Conference Portal.">
+<!-- Unlisted: shareable with customers, kept out of search indexes. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="trailmark-icon-256.png">
+<link rel="apple-touch-icon" href="trailmark-icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E3A5F;--navy-2:#23456E;--navy-deep:#152A45;--navy-deepest:#0F2036;
+  --gold:#C9A24B;--gold-br:#E3C57E;--gold-dp:#9C7C32;
+  --forest:#33684B;--forest-2:#3E7C5A;--adv:#2E7BC4;
+  --paper:#F7F2E6;--paper-2:#F1EAD7;--card:#FFFFFF;
+  --ink:#1B2A38;--ink-soft:#3C4D5C;--muted:#65788A;--dim:#8A9AA8;
+  --line:#E6DEC9;--line-cool:#DCE4EC;
+  --sky-tint:#EAF2FA;--forest-tint:#E7F0EA;--gold-tint:#F6ECD2;--navy-tint:#E8EDF3;
+  --shadow-sm:0 1px 2px rgba(21,42,69,.05),0 2px 8px -3px rgba(21,42,69,.08);
+  --maxw:1000px;--gut:clamp(20px,5vw,56px);--r:18px;
+  --sans:'Nunito',system-ui,-apple-system,sans-serif;--serif:'Fraunces',Georgia,serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:17px;line-height:1.6;font-weight:500;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacing:-.014em;margin:0;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut);}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--gold-dp);margin:0 0 16px;}
+.eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor;opacity:.75;}
+.topo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden;}
+.topo svg{width:100%;height:100%;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:999px;font-family:var(--sans);font-weight:800;font-size:15px;line-height:1;padding:15px 26px;transition:transform .14s,background .18s;white-space:nowrap;}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--gold);color:#3a2710;box-shadow:0 10px 24px -10px rgba(201,162,75,.7);}
+.btn-primary:hover{background:var(--gold-br);}
+/* nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(247,242,230,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-inner{display:flex;align-items:center;gap:26px;height:68px;max-width:1140px;margin:0 auto;padding-inline:var(--gut);}
+.brand{display:inline-flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:-.01em;color:var(--ink);}
+.brand .pcm{font-family:var(--sans);font-weight:800;font-size:10.5px;letter-spacing:.14em;color:var(--navy);background:var(--navy-tint);border-radius:6px;padding:3px 6px;transform:translateY(-1px);}
+.brand-mark{width:34px;height:34px;flex-shrink:0;border-radius:9px;box-shadow:var(--shadow-sm);}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:14px;}
+.nav-back{font-size:14px;font-weight:700;color:var(--ink-soft);padding:9px 13px;border-radius:9px;}
+.nav-back:hover{background:rgba(255,255,255,.7);color:var(--navy);}
+/* hero */
+.phead{position:relative;overflow:hidden;background:radial-gradient(120% 95% at 82% -10%,var(--navy-2),transparent 55%),linear-gradient(165deg,var(--navy-deepest),var(--navy-deep));color:#fff;}
+.phead .topo{color:rgba(255,255,255,.09);}
+.phead-in{position:relative;z-index:2;padding-block:clamp(46px,6.5vw,78px);max-width:760px;}
+.phead h1{color:#fff;font-size:clamp(32px,4.6vw,50px);line-height:1.02;letter-spacing:-.02em;}
+.phead h1 .gold{color:var(--gold-br);}
+.phead p{color:rgba(255,255,255,.82);font-size:clamp(16px,1.8vw,20px);line-height:1.5;margin-top:18px;max-width:42em;}
+.pill{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 15px 7px 9px;font-size:12.5px;font-weight:800;color:rgba(255,255,255,.92);margin-bottom:22px;}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--gold-br);box-shadow:0 0 0 3px rgba(227,197,126,.3);}
+/* changelog */
+.log{padding-block:clamp(44px,6vw,76px);}
+.rel{display:grid;grid-template-columns:172px 1fr;gap:clamp(16px,3vw,40px);padding-block:clamp(28px,4vw,44px);border-top:1px solid var(--line);}
+.rel:first-child{border-top:none;}
+@media(max-width:720px){.rel{grid-template-columns:1fr;gap:14px;}}
+.rel-when{position:sticky;top:88px;align-self:start;}
+@media(max-width:720px){.rel-when{position:static;}}
+.rel-when .m{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);}
+.rel-when .tagline{font-size:12.5px;font-weight:700;color:var(--gold-dp);letter-spacing:.04em;margin-top:3px;}
+.items{display:flex;flex-direction:column;gap:16px;}
+.item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow-sm);}
+.item-top{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+.chip{font-size:10.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 10px;}
+.chip.new{background:var(--gold-tint);color:var(--gold-dp);}
+.chip.improved{background:var(--forest-tint);color:var(--forest);}
+.chip.security{background:var(--navy-tint);color:var(--navy);}
+.item h4{font-family:var(--sans);font-weight:800;font-size:16px;color:var(--ink);}
+.item p{margin:4px 0 0;font-size:14.5px;line-height:1.55;color:var(--muted);font-weight:600;}
+.badge-prog{font-size:11px;font-weight:800;color:var(--dim);}
+/* foundations intro */
+.foundations-note{background:var(--navy-tint);border:1px solid var(--line-cool);border-radius:var(--r);padding:16px 20px;font-size:14.5px;font-weight:600;color:var(--ink-soft);margin-bottom:4px;}
+/* CTA / footer */
+.cta{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--navy-deep),var(--navy-deepest));color:#fff;padding-block:clamp(48px,7vw,84px);}
+.cta .topo{color:rgba(255,255,255,.08);}
+.cta-in{position:relative;z-index:2;text-align:center;max-width:620px;margin:0 auto;}
+.cta h2{color:#fff;font-size:clamp(24px,3.4vw,34px);}
+.cta p{color:rgba(255,255,255,.8);font-size:17px;margin:14px 0 26px;}
+.footer{background:var(--navy-deepest);color:rgba(255,255,255,.6);}
+.footer-in{padding-block:34px 26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;}
+.footer .brand{color:#fff;}.footer .brand .pcm{background:rgba(255,255,255,.14);color:#fff;}
+.footer .scripture{font-family:var(--serif);font-style:italic;color:rgba(255,255,255,.6);font-size:14px;}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <pattern id="topo" width="340" height="250" patternUnits="userSpaceOnUse" patternTransform="rotate(-6)">
+    <g fill="none" stroke="currentColor" stroke-width="1.3">
+      <path d="M-40 130 Q 100 55 215 122 T 450 120"/><path d="M-40 96 Q 100 22 215 80 T 450 80"/>
+      <path d="M-40 170 Q 100 110 215 168 T 450 162"/><path d="M-40 60 Q 100 4 215 46 T 450 50"/>
+      <path d="M-40 208 Q 100 222 215 214 T 450 214"/><path d="M-40 245 Q 100 258 215 250 T 450 252"/>
+    </g>
+  </pattern>
+</defs></svg>
+
+<!-- NAV -->
+<header class="nav">
+  <nav class="nav-inner" aria-label="Primary">
+    <a class="brand" href="/">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect width="48" height="48" rx="12" fill="#1E3A5F"/>
+        <path d="M12 39 C 17 31, 23 33, 25 26" stroke="#F4EEDD" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.5 6.6"/>
+        <path d="M30 9 a8.5 8.5 0 0 1 8.5 8.5 c0 6.2 -8.5 13.5 -8.5 13.5 s-8.5 -7.3 -8.5 -13.5 A8.5 8.5 0 0 1 30 9 z" fill="#C9A24B"/>
+        <circle cx="30" cy="17.5" r="3.4" fill="#1E3A5F"/>
+      </svg>
+      TrailMark <span class="pcm">PCM</span>
+    </a>
+    <div class="nav-right">
+      <a class="nav-back" href="/">← Back to site</a>
+      <a class="btn btn-primary" style="font-size:13.5px;padding:11px 18px;" href="/#contact">Contact us</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="phead">
+  <div class="topo" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#topo)"/></svg></div>
+  <div class="wrap phead-in">
+    <span class="pill"><span class="dot"></span> Product updates</span>
+    <h1>What's new in <span class="gold">TrailMark.</span></h1>
+    <p>TrailMark is in active development ahead of its conference launch. Here's what we've been building — new programs, tools for conferences, and the safeguards that protect your members' data.</p>
+  </div>
+</section>
+
+<!-- CHANGELOG -->
+<div class="log">
+  <div class="wrap">
+
+    <!-- ── JUNE 2026 ── -->
+    <div class="rel">
+      <div class="rel-when">
+        <div class="m">June 2026</div>
+        <div class="tagline">Reporting, roles &amp; privacy</div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <div class="item-top"><span class="chip new">New</span><h4>Conference Secretary role</h4></div>
+          <p>Conference directors can now invite a read-only assistant to help pull and print reports — without the ability to distribute licenses or manage churches.</p>
+        </div>
+        <div class="item">
+          <div class="item-top"><span class="chip new">New</span><h4>Adventurer conference reporting <span class="badge-prog">· Adventurers</span></h4></div>
+          <p>Adventurer clubs can send a bi-monthly report up to their conference — matching the way Pathfinder clubs report each month, so the whole field reports the same way.</p>
+        </div>
+        <div class="item">
+          <div class="item-top"><span class="chip new">New</span><h4>Printable certificates for every program</h4></div>
+          <p>Generate personalized certificates for Adventurers, Pathfinders, and Master Guide, each with its own title and signature lines — ready to print or save as a PDF.</p>
+        </div>
+        <div class="item">
+          <div class="item-top"><span class="chip security">Security &amp; privacy</span><h4>Stronger family &amp; medical privacy controls</h4></div>
+          <p>Added role-based controls so a child's family, medical, and emergency details are shown only to the caregiving roles that need them — enforced server-side, not just hidden on screen.</p>
+        </div>
+        <div class="item">
+          <div class="item-top"><span class="chip improved">Improved</span><h4>Parent portal</h4></div>
+          <p>Parents can view their own child's progress, honors earned, and the club schedule, and keep family and medical information up to date — seeing only their own child, never the roster.</p>
+        </div>
+        <div class="item">
+          <div class="item-top"><span class="chip security">Security &amp; privacy</span><h4>Account security &amp; activity trail</h4></div>
+          <p>Two-factor authentication for conference and administrator accounts, plus an append-only record of sensitive changes for accountability.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FOUNDATIONS ── -->
+    <div class="rel">
+      <div class="rel-when">
+        <div class="m">Earlier in 2026</div>
+        <div class="tagline">Platform foundations</div>
+      </div>
+      <div class="items">
+        <div class="foundations-note">The core of TrailMark came together over the first half of 2026 — three complete programs and the conference layer that ties them together.</div>
+        <div class="item">
+          <div class="item-top"><span class="chip new">New</span><h4>The Adventurers program <span class="badge-prog">· Ages 4–9</span></h4></div>
+          <p>A bright, playful home for the littlest members: six classes with star progress, colorful awards and chips, per-class requirements, and a kid-facing "adventure map."</p>
+        </div>
+        <div class="item">
+          <div class="item-top"><span class="chip new">New</span><h4>Master Guide <span class="badge-prog">· Ages 16+ &amp; leaders</span></h4></div>
+          <p>A regal leadership path — candidates progress through trials with mentor sign-off, toward investiture and a certificate.</p>
+        </div>
+        <div class="item">
+          <div class="item-top"><span class="chip new">New</span><h4>Conference Portal &amp; dashboard</h4></div>
+          <p>A live view of every licensed church, a monthly-report inbox so reports arrive automatically, and youth counts from a single club up to the whole field.</p>
+        </div>
+        <div class="item">
+          <div class="item-top"><span class="chip new">New</span><h4>One license, all three programs</h4></div>
+          <p>A single church license unlocks Adventurers, Pathfinders, and Master Guide together — nothing to buy à la carte.</p>
+        </div>
+        <div class="item">
+          <div class="item-top"><span class="chip new">New</span><h4>Monthly conference report <span class="badge-prog">· Pathfinders</span></h4></div>
+          <p>The monthly conference report is generated for you from the club's own records — no more piecing it together by hand at month's end.</p>
+        </div>
+        <div class="item">
+          <div class="item-top"><span class="chip improved">Improved</span><h4>Conference directory &amp; bilingual app</h4></div>
+          <p>A built-in directory of North American Division conferences, and full English / Español support throughout the app.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="topo" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#topo)"/></svg></div>
+  <div class="wrap cta-in">
+    <span class="eyebrow on-dark" style="justify-content:center;color:var(--gold-br);">More on the way</span>
+    <h2>Want it for your conference?</h2>
+    <p>TrailMark is licensed conference-direct. Tell us about your field and we'll walk your team through it.</p>
+    <a class="btn btn-primary btn-lg" style="padding:17px 30px;font-size:16px;" href="/#contact">Bring TrailMark to your conference</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-in">
+    <a class="brand" href="/">TrailMark <span class="pcm">PCM</span></a>
+    <span class="scripture">"Train up a child in the way he should go." — Proverbs 22:6</span>
+  </div>
+</footer>
+
+</body>
+</html>
