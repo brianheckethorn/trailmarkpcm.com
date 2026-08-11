@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TrailMark PCM — Run your whole youth ministry from one place</title>
-<meta name="description" content="TrailMark PCM is the all-in-one platform for Seventh-day Adventist youth ministry — Adventurers and Pathfinders, with Master Guide coming soon. Licensed conference-direct to your churches.">
+<title>TrailMark PCM — Coming soon for Seventh-day Adventist youth ministry</title>
+<meta name="description" content="TrailMark PCM is coming soon. The Pathfinder platform is in private testing with a select group of churches. When subscriptions open, TrailMark will be available through conferences for their churches and directly to individual churches.">
 <link rel="canonical" href="https://trailmarkpcm.com/">
 <link rel="icon" type="image/png" href="trailmark-icon-256.png">
 <link rel="apple-touch-icon" href="trailmark-icon-512.png">
@@ -12,12 +12,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://trailmarkpcm.com/">
 <meta property="og:site_name" content="TrailMark PCM">
-<meta property="og:title" content="TrailMark PCM — Run your whole youth ministry from one place">
-<meta property="og:description" content="One platform for Adventurers and Pathfinders — Master Guide coming soon — licensed conference-direct to your churches. Tell your Conference Youth Director.">
+<meta property="og:title" content="TrailMark PCM — Coming soon for Seventh-day Adventist youth ministry">
+<meta property="og:description" content="Coming soon. The Pathfinder platform is in private testing with a select group of churches. At launch, subscriptions will be offered through conferences for their churches and directly to individual churches. Adventurers will follow.">
 <meta property="og:image" content="https://trailmarkpcm.com/trailmark-icon-512.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TrailMark PCM — Run your whole youth ministry from one place">
-<meta name="twitter:description" content="One platform for Adventurers and Pathfinders — Master Guide coming soon — licensed conference-direct to your churches.">
+<meta name="twitter:title" content="TrailMark PCM — Coming soon for Seventh-day Adventist youth ministry">
+<meta name="twitter:description" content="Coming soon. The Pathfinder platform is in private testing with a select group of churches. At launch, subscriptions will be offered through conferences and directly to individual churches.">
 <meta name="twitter:image" content="https://trailmarkpcm.com/trailmark-icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,12 +146,12 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
 @media(max-width:680px){.trust .t-sep{display:none;}}
 
 /* ── PROGRAM CARDS ── */
-.progs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+/* Two programs: Pathfinders (in private testing) is primary and wider; Adventurers is
+   secondary and clearly marked Coming Soon. Neither is open for subscription yet. */
+.progs{display:grid;grid-template-columns:1.18fr .82fr;gap:20px;align-items:stretch;}
 @media(max-width:880px){.progs{grid-template-columns:1fr;max-width:460px;margin-inline:auto;}}
 .prog{position:relative;overflow:hidden;border-radius:var(--r-lg);padding:30px;color:#fff;box-shadow:var(--shadow-md);display:flex;flex-direction:column;min-height:380px;}
-.prog.adv{background:linear-gradient(158deg,#4D97DC,#1F5FA0);}
 .prog.pf{background:linear-gradient(158deg,var(--forest-2),#244A36);}
-.prog.mg{background:linear-gradient(158deg,#2B3D63,var(--navy-deepest));}
 .prog .topo{color:rgba(255,255,255,.1);}
 .prog-in{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;}
 .prog-ic{width:54px;height:54px;border-radius:15px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
@@ -161,6 +161,29 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
 .prog .p-list{list-style:none;margin:0 0 4px;padding:0;display:flex;flex-direction:column;gap:9px;margin-top:auto;}
 .prog .p-list li{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;color:rgba(255,255,255,.94);}
 .prog .p-list .tick{width:20px;height:20px;border-radius:6px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* status flags */
+.prog-status{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:6px 14px 6px 11px;font-family:var(--sans);font-size:11.5px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;margin-bottom:16px;align-self:flex-start;}
+/* .now = the program currently under test — a working state, not general availability */
+.prog-status.now{background:rgba(255,255,255,.94);color:#5A431A;box-shadow:0 6px 16px -8px rgba(0,0,0,.45);}
+.prog-status.now .dot{width:8px;height:8px;border-radius:50%;background:var(--gold-dp);box-shadow:0 0 0 3px rgba(156,124,50,.26);}
+.prog-status.soon{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.42);color:#fff;}
+.prog-status.soon svg{opacity:.9;}
+
+/* primary card gets a little more presence */
+.prog.is-primary{min-height:430px;border:1px solid rgba(255,255,255,.18);box-shadow:var(--shadow-lg);}
+.prog.is-primary h3{font-size:29px;}
+.prog.is-primary .p-desc{font-size:15px;}
+
+/* secondary "coming soon" card reads as future, not purchasable */
+.prog.is-soon{background:linear-gradient(158deg,#5E7893,#3D5570);box-shadow:var(--shadow-sm);}
+.prog.is-soon .prog-ic{background:rgba(255,255,255,.12);}
+.prog.is-soon .p-desc{color:rgba(255,255,255,.78);}
+.prog .p-list-label{font-size:10.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.62);margin-top:auto;margin-bottom:10px;}
+.prog .p-list-label + .p-list{margin-top:0;}
+.prog.is-soon .p-list li{font-weight:600;color:rgba(255,255,255,.8);align-items:flex-start;}
+.prog.is-soon .p-list .pend{width:20px;height:20px;border-radius:50%;border:1.5px dashed rgba(255,255,255,.5);flex-shrink:0;margin-top:1px;}
+.prog.is-soon .soon-note{margin:16px 0 0;font-size:12.5px;line-height:1.5;font-weight:700;color:rgba(255,255,255,.72);border-top:1px solid rgba(255,255,255,.18);padding-top:14px;}
 .license-ribbon{margin-top:26px;display:flex;align-items:center;justify-content:center;gap:12px;text-align:center;background:linear-gradient(90deg,var(--gold-tint),#fff,var(--gold-tint));border:1px solid var(--gold);border-radius:999px;padding:14px 24px;font-weight:800;font-size:14.5px;color:var(--ink);box-shadow:var(--shadow-sm);flex-wrap:wrap;}
 .license-ribbon svg{color:var(--gold-dp);flex-shrink:0;}
 .license-ribbon b{color:var(--gold-dp);}
@@ -284,7 +307,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
       <a href="#conferences">For Conferences</a>
     </div>
     <div class="nav-right">
-      <a class="btn btn-navy nav-cta" href="#contact">Bring it to your conference</a>
+      <a class="btn btn-navy nav-cta" href="#contact">Get launch updates</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -294,7 +317,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
     <a href="#programs">Programs</a>
     <a href="#how">How it works</a>
     <a href="#conferences">For Conferences</a>
-    <a class="btn btn-navy" href="#contact">Bring it to your conference</a>
+    <a class="btn btn-navy" href="#contact">Get launch updates</a>
   </div>
 </header>
 
@@ -305,18 +328,18 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
   <div class="topo" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#topo)"/></svg></div>
   <div class="wrap hero-inner">
     <div>
-      <span class="hero-badge"><span class="pulse"></span> Now serving Seventh-day Adventist conferences</span>
-      <h1>Your whole youth ministry,<br><span class="gold">run from one place.</span></h1>
-      <p class="hero-sub">One platform for <b>Adventurers</b> and <b>Pathfinders</b> — with <b>Master Guide</b> coming soon. Rosters, investiture &amp; awards, honors, attendance &amp; points, club activities, and the monthly conference report, all in one calm home.</p>
+      <span class="hero-badge"><span class="pulse"></span> Coming soon · Pathfinder testing underway</span>
+      <h1>TrailMark PCM is<br><span class="gold">coming soon.</span></h1>
+      <p class="hero-sub">One calm home for a Seventh-day Adventist club's rosters, investiture, honors, attendance &amp; points, activities, and the monthly conference report. The <b>Pathfinder</b> platform is in private testing with a select group of churches right now. It isn't open for subscription yet — and when it opens, you'll be able to come through your <b>conference</b> or sign up your <b>church directly</b>.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary btn-lg" href="#contact">Bring TrailMark to your conference
+        <a class="btn btn-primary btn-lg" href="#contact">Get launch updates
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn btn-ghost-light btn-lg" href="#share">Tell your Youth Director</a>
       </div>
       <p class="hero-note">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        Licensed conference-direct · one license covers both programs
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Not yet available for subscription · no launch date announced
       </p>
     </div>
     <div class="hero-visual reveal">
@@ -331,9 +354,9 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
 <!-- trust strip -->
 <div class="trust">
   <div class="wrap">
-    <div class="t-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V5z"/><path d="m9 12 2 2 4-4"/></svg> Two programs, one platform</div>
+    <div class="t-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V5z"/><path d="m9 12 2 2 4-4"/></svg> Pathfinder platform in private testing</div>
     <div class="t-sep"></div>
-    <div class="t-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg> Monthly report, generated for you</div>
+    <div class="t-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg> Built around the monthly conference report</div>
     <div class="t-sep"></div>
     <div class="t-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Youth data stays private</div>
   </div>
@@ -343,60 +366,54 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
 <section class="section" id="programs">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="eyebrow">Two programs live · one on the way</span>
-      <h2>The whole journey, ages 4 through leadership.</h2>
-      <p class="lead">Each program shaped around how it actually runs — Adventurers and Pathfinders today, in a single church license, with Master Guide on the trail ahead.</p>
+      <span class="eyebrow">Pathfinders in testing · Adventurers to follow</span>
+      <h2>Built first for the club that runs hardest.</h2>
+      <p class="lead">TrailMark is shaped around how a Pathfinder club actually runs, so Pathfinders is the program we built first and the one now being tested with a select group of churches. Adventurers comes after the Pathfinder launch. Neither program is open for subscription yet.</p>
     </div>
     <div class="progs">
-      <!-- Adventurers -->
-      <div class="prog adv reveal">
+      <!-- Pathfinders — in private testing, primary -->
+      <div class="prog pf is-primary reveal" aria-label="Pathfinders — in private testing, not yet open for subscription">
         <div class="topo" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#topo)"/></svg></div>
         <div class="prog-in">
-          <div class="prog-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8H20l-5 3.6 1.9 5.8L12 14.6 6.1 18.2 8 12.4 3 8.8h6.1z"/></svg></div>
-          <div class="prog-age">Ages 4–9</div>
-          <h3>Adventurers</h3>
-          <p class="p-desc">Bright and playful for the littlest members — built to delight the kids as much as the staff.</p>
-          <ul class="p-list">
-            <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Six classes &amp; star progress</li>
-            <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Awards &amp; colorful badges</li>
-            <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> A kid-facing "adventure map"</li>
-          </ul>
-        </div>
-      </div>
-      <!-- Pathfinders -->
-      <div class="prog pf reveal d1">
-        <div class="topo" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#topo)"/></svg></div>
-        <div class="prog-in">
+          <span class="prog-status now"><span class="dot"></span> In private testing</span>
           <div class="prog-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 21 12 3l8.5 18M12 3v18M5.5 17h13"/></svg></div>
           <div class="prog-age">Ages 10–15</div>
           <h3>Pathfinders</h3>
-          <p class="p-desc">The outdoorsy core — investiture across all six levels, with honors and points the conference way.</p>
+          <p class="p-desc">The outdoorsy core — investiture across all six levels, with honors and points the conference way. This is the program a select group of churches is testing with us before launch.</p>
+          <div class="p-list-label">What those churches are testing</div>
           <ul class="p-list">
             <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Investiture, all six levels</li>
             <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Honors, attendance &amp; points</li>
             <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Staff &amp; background-check tracking</li>
+            <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> The monthly conference report, generated for you</li>
           </ul>
         </div>
       </div>
-      <!-- Master Guide -->
-      <div class="prog mg reveal d2">
+      <!-- Adventurers — coming soon, secondary -->
+      <div class="prog is-soon reveal d1" aria-label="Adventurers — coming soon, not yet available">
         <div class="topo" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#topo)"/></svg></div>
         <div class="prog-in">
-          <div class="prog-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3C57E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 4 5-7 5 7 4-4v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 20h18"/></svg></div>
-          <div class="prog-age" style="color:#E3C57E;">Ages 16+ &amp; leaders <span style="display:inline-block;margin-left:8px;padding:3px 10px;border-radius:999px;border:1px solid rgba(227,197,126,.5);background:rgba(227,197,126,.14);color:#E3C57E;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;vertical-align:1px;">Coming soon</span></div>
-          <h3>Master Guide</h3>
-          <p class="p-desc">A regal path of leadership development, built on the official NAD curriculum — on the trail ahead for TrailMark.</p>
+          <span class="prog-status soon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Coming soon
+          </span>
+          <div class="prog-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8H20l-5 3.6 1.9 5.8L12 14.6 6.1 18.2 8 12.4 3 8.8h6.1z"/></svg></div>
+          <div class="prog-age">Ages 4–9</div>
+          <h3>Adventurers</h3>
+          <p class="p-desc">A bright, playful home for the littlest members. It is still being built, and it is not part of the current Pathfinder test.</p>
+          <div class="p-list-label">Planned for Adventurers</div>
           <ul class="p-list">
-            <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Official curriculum &amp; mentor sign-offs</li>
-            <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Compliance &amp; safeguards</li>
-            <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Investiture certificate</li>
+            <li><span class="pend" aria-hidden="true"></span> Six classes &amp; star progress</li>
+            <li><span class="pend" aria-hidden="true"></span> Awards &amp; colorful badges</li>
+            <li><span class="pend" aria-hidden="true"></span> A kid-facing "adventure map"</li>
           </ul>
+          <p class="soon-note">Pathfinder testing and launch come first. Adventurers follows after that — no date is set, and we will announce it when it is ready.</p>
         </div>
       </div>
     </div>
     <div class="license-ribbon reveal">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="6" r="3"/><path d="M12 9v11"/></svg>
-      <span>Both programs are included in a single church license — <b>nothing to buy à la carte.</b> Master Guide, when it arrives, will be offered under its own license.</span>
+      <span>Subscriptions aren't open yet. When they are, there will be <b>two ways in</b> — through your <b>conference</b>, for the churches it covers, or <b>directly as an individual church.</b> Pricing and terms will be published before launch.</span>
     </div>
   </div>
 </section>
@@ -405,42 +422,42 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
 <section class="section how band" id="how">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="eyebrow">How it works</span>
-      <h2>Licensed by the conference. Run by the church.</h2>
-      <p class="lead">Conferences license their churches, and each church gets the whole platform — with a simple chain of oversight from the conference down to each program.</p>
+      <span class="eyebrow">How it will work</span>
+      <h2>Subscribed by the conference. Run by the church.</h2>
+      <p class="lead">This is the structure we're testing now and the one we'll launch with. A conference will be able to subscribe on behalf of its churches, and each church will get the whole Pathfinder platform — with a simple chain of oversight from the conference down to the club.</p>
     </div>
     <div class="flow">
       <div class="tier reveal">
         <span class="step">1</span>
         <div class="t-ic" style="background:var(--navy-tint);color:var(--navy);"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg></div>
         <h4>Conference</h4>
-        <p>Licenses its churches and watches the whole field from the Conference Portal.</p>
+        <p>Will subscribe for its churches and watch the whole field from the Conference Portal.</p>
         <div class="arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       </div>
       <div class="tier reveal d1">
         <span class="step">2</span>
         <div class="t-ic" style="background:var(--forest-tint);color:var(--forest);"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5h6M4 22V11l8-5 8 5v11M4 22h16M10 22v-5a2 2 0 0 1 4 0v5"/></svg></div>
         <h4>Church</h4>
-        <p>Gets the full platform — both programs — the moment it's licensed.</p>
+        <p>Will get the full Pathfinder platform — through its conference, or on its own subscription.</p>
         <div class="arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       </div>
       <div class="tier reveal d2">
         <span class="step">3</span>
         <div class="t-ic" style="background:var(--gold-tint);color:var(--gold-dp);"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
         <h4>Administrative Director</h4>
-        <p>One per church — sets up the club and invites each program's directors.</p>
+        <p>One per church — will set up the club and invite its directors.</p>
         <div class="arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       </div>
       <div class="tier reveal d3">
         <span class="step">4</span>
         <div class="t-ic" style="background:var(--sky-tint);color:var(--adv);"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h4>Program Directors</h4>
-        <p>Adventurer &amp; Pathfinder leaders track their own members day to day.</p>
+        <p>Pathfinder directors, counselors and staff will track their members day to day.</p>
       </div>
     </div>
     <div class="how-foot reveal">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-      One license, one setup — and every program in the church is covered.
+      A church won't have to wait on its conference — at launch it will be able to subscribe on its own.
     </div>
   </div>
 </section>
@@ -452,11 +469,11 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
     <div class="reveal">
       <span class="eyebrow on-dark">For Conferences</span>
       <h2>See every church from one dashboard.</h2>
-      <p class="lead">The Conference Portal turns scattered clubs into one clear picture — so you can lead your field instead of chasing it.</p>
+      <p class="lead">The Conference Portal is designed to turn scattered clubs into one clear picture — so you can lead your field instead of chasing it. It's part of what select churches are testing now, and it will be ready when conference subscriptions open.</p>
       <ul class="conf-feats">
         <li>
           <span class="cf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span>
-          <div><h4>A live dashboard of all your churches</h4><p>Every licensed church, its programs, and how each one is doing — at a glance.</p></div>
+          <div><h4>A live dashboard of all your churches</h4><p>Every church on your subscription, its club, and how each one is doing — at a glance.</p></div>
         </li>
         <li>
           <span class="cf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></svg></span>
@@ -472,7 +489,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
         </li>
       </ul>
       <div class="hero-cta" style="margin-top:30px;">
-        <a class="btn btn-primary btn-lg" href="#contact">Bring TrailMark to your conference</a>
+        <a class="btn btn-primary btn-lg" href="#contact">Register your conference's interest</a>
       </div>
     </div>
     <div class="reveal d1">
@@ -495,7 +512,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
     <div class="safe-card reveal">
       <div class="s-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
       <h4>Private to your club</h4>
-      <p>Roster and youth data stays with the club that enters it and the conference that licenses it — never sold, never shared.</p>
+      <p>Roster and youth data stays with the club that enters it and the conference it belongs to — never sold, never shared.</p>
     </div>
     <div class="safe-card reveal d1">
       <div class="s-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="m17 11 2 2 4-4"/></svg></div>
@@ -514,15 +531,15 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
 <section class="section cta band" id="contact">
   <div class="topo" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#topo)"/></svg></div>
   <div class="wrap cta-inner reveal">
-    <span class="eyebrow on-dark" style="justify-content:center;">Get started</span>
-    <h2>Bring TrailMark to your conference.</h2>
-    <p>TrailMark is licensed conference-direct. Tell us about your field and we'll walk your team through it — no obligation.</p>
+    <span class="eyebrow on-dark" style="justify-content:center;">Stay in the loop</span>
+    <h2>Be ready when we launch.</h2>
+    <p>TrailMark isn't open for subscriptions yet — the Pathfinder platform is still in private testing. Ask us a question, tell us about your field, or just ask to be told when we launch. No obligation.</p>
     <div class="cta-row">
-      <a class="btn btn-primary btn-lg" href="mailto:contact@trailmarkpcm.com?subject=Bringing%20TrailMark%20to%20our%20conference&amp;body=Hi%20TrailMark%20team%2C%0A%0AWe%27d%20like%20to%20learn%20more%20about%20bringing%20TrailMark%20to%20our%20conference.%0A%0AConference%3A%20%0AName%20%26%20role%3A%20%0ANumber%20of%20churches%2Fclubs%3A%20%0A%0AThanks%21">
+      <a class="btn btn-primary btn-lg" href="mailto:contact@trailmarkpcm.com?subject=TrailMark%20%E2%80%94%20conference%20interest%20and%20launch%20updates&amp;body=Hi%20TrailMark%20team%2C%0A%0AWe%27d%20like%20to%20hear%20from%20you%20as%20TrailMark%20moves%20toward%20launch%2C%20and%20to%20talk%20about%20what%20it%20would%20look%20like%20for%20our%20conference.%0A%0AConference%3A%20%0AName%20%26%20role%3A%20%0ANumber%20of%20churches%2Fclubs%3A%20%0A%0AThanks%21">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
         Contact us
       </a>
-      <a class="btn btn-ghost-light btn-lg" href="#share">I'm a director — how do I get it?</a>
+      <a class="btn btn-ghost-light btn-lg" href="#share">I'm a director — what happens at launch?</a>
     </div>
 
     <div class="cta-split"><span class="line"></span> Not a conference leader? <span class="line"></span></div>
@@ -530,11 +547,11 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
     <div class="share" id="share">
       <div class="s-top">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
-        TrailMark is set up through your conference
+        Two ways in, when we launch
       </div>
-      <p>That's the best path — one license covers every church in the field. Tell your Conference Youth Director, or send them this page.</p>
+      <p>A conference will be able to subscribe for all its churches, and an individual church will be able to subscribe on its own. If the conference route suits your field, tell your Conference Youth Director — or send them this page.</p>
       <div class="share-actions">
-        <a class="btn btn-primary" href="mailto:?subject=Should%20our%20conference%20look%20at%20TrailMark%20PCM%3F&amp;body=Hi%2C%0A%0AI%20came%20across%20TrailMark%20PCM%20%E2%80%94%20one%20platform%20that%20runs%20Adventurers%20and%20Pathfinders%20together%2C%20with%20a%20conference%20dashboard%20and%20automatic%20monthly%20reports.%20It%27s%20licensed%20conference-direct.%0A%0ACould%20we%20take%20a%20look%20for%20our%20field%3F%20Here%27s%20the%20site%3A%20https%3A%2F%2Ftrailmarkpcm.com%0A%0AThanks%21">
+        <a class="btn btn-primary" href="mailto:?subject=Should%20our%20conference%20keep%20an%20eye%20on%20TrailMark%20PCM%3F&amp;body=Hi%2C%0A%0AI%20came%20across%20TrailMark%20PCM%20%E2%80%94%20a%20platform%20for%20running%20a%20Pathfinder%20club%2C%20with%20a%20conference%20dashboard%20and%20automatic%20monthly%20reports.%20It%27s%20still%20coming%20soon%3A%20it%27s%20in%20private%20testing%20with%20a%20select%20group%20of%20churches%2C%20and%20when%20it%20launches%20it%20will%20be%20offered%20through%20conferences%20and%20directly%20to%20individual%20churches.%0A%0ACould%20we%20keep%20an%20eye%20on%20it%20for%20our%20field%3F%20Here%27s%20the%20site%3A%20https%3A%2F%2Ftrailmarkpcm.com%0A%0AThanks%21">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
           Share with your Youth Director
         </a>
@@ -545,11 +562,11 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
         </button>
       </div>
       <div style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);">
-        <p style="margin-bottom:14px;"><b style="color:#fff;">Can't wait for your conference?</b> Individual clubs can license TrailMark directly — contact us and we'll get your club set up. And if your conference later brings TrailMark to the whole field, we'll fold your club into their license — nothing lost.</p>
+        <p style="margin-bottom:14px;"><b style="color:#fff;">Not waiting on a conference?</b> At launch, an individual church will be able to subscribe on its own. Tell us you're interested and we'll contact you when subscriptions open.</p>
         <div class="share-actions">
-          <a class="btn btn-ghost-light" href="mailto:contact@trailmarkpcm.com?subject=Licensing%20TrailMark%20for%20our%20club&amp;body=Hi%20TrailMark%20team%2C%0A%0AOur%20club%20would%20like%20to%20license%20TrailMark%20directly.%0A%0AChurch%3A%20%0AConference%3A%20%0APrograms%20we%20run%20(Adventurers%20%2F%20Pathfinders)%3A%20%0AApproximate%20number%20of%20kids%3A%20%0AName%20%26%20role%3A%20%0A%0AThanks%21">
+          <a class="btn btn-ghost-light" href="mailto:contact@trailmarkpcm.com?subject=TrailMark%20%E2%80%94%20individual%20church%20interest&amp;body=Hi%20TrailMark%20team%2C%0A%0AOur%20church%20would%20like%20to%20be%20contacted%20when%20TrailMark%20opens%20subscriptions%20for%20individual%20churches.%0A%0AChurch%3A%20%0AConference%3A%20%0AClub%20name%3A%20%0AApproximate%20number%20of%20Pathfinders%3A%20%0AName%20%26%20role%3A%20%0A%0AThanks%21">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5h6M4 22V11l8-5 8 5v11M4 22h16M10 22v-5a2 2 0 0 1 4 0v5"/></svg>
-            License TrailMark for our club
+            Register our church's interest
           </a>
         </div>
       </div>
@@ -567,7 +584,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
           <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#1E3A5F"/><path d="M12 39 C 17 31, 23 33, 25 26" stroke="#F4EEDD" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.5 6.6"/><path d="M30 9 a8.5 8.5 0 0 1 8.5 8.5 c0 6.2 -8.5 13.5 -8.5 13.5 s-8.5 -7.3 -8.5 -13.5 A8.5 8.5 0 0 1 30 9 z" fill="#C9A24B"/><circle cx="30" cy="17.5" r="3.4" fill="#1E3A5F"/></svg>
           TrailMark <span class="pcm">PCM</span>
         </a>
-        <p class="footer-blurb">One platform for Seventh-day Adventist youth ministry — Adventurers and Pathfinders, with Master Guide coming soon.</p>
+        <p class="footer-blurb">Club management for Seventh-day Adventist youth ministry. Coming soon — the Pathfinder platform is in private testing, and Adventurers follows after launch.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -578,7 +595,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
         </div>
         <div class="footer-col">
           <h5>Get in touch</h5>
-          <a href="#contact">Bring it to your conference</a>
+          <a href="#contact">Get launch updates</a>
           <a href="#share">Share with your director</a>
           <a href="mailto:contact@trailmarkpcm.com">contact@trailmarkpcm.com</a>
         </div>

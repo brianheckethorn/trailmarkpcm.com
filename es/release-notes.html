@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Novedades — TrailMark PCM</title>
-<meta name="description" content="Novedades de TrailMark PCM — actualizaciones del producto y nuevas funciones en Aventureros, Conquistadores y el Portal de la Asociación.">
+<meta name="description" content="Novedades de TrailMark PCM — la plataforma de Conquistadores está en pruebas limitadas con iglesias seleccionadas, y las suscripciones públicas llegarán próximamente a través de las asociaciones o directamente a iglesias individuales. Incluye un registro archivado del desarrollo anterior.">
 <!-- No listada: enlace para compartir con clientes, fuera de los índices de búsqueda. -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" href="/trailmark-icon-256.png">
@@ -47,6 +47,13 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:14px;}
 .nav-back{font-size:14px;font-weight:700;color:var(--ink-soft);padding:9px 13px;border-radius:9px;}
 .nav-back:hover{background:rgba(255,255,255,.7);color:var(--navy);}
+/* pantallas estrechas: la navegación se ajusta en lugar de desbordar la ventana */
+@media(max-width:640px){
+  .nav-inner{flex-wrap:wrap;gap:6px 14px;height:auto;min-height:68px;padding-block:10px;}
+  .nav-right{margin-left:0;flex-wrap:wrap;gap:6px;}
+  .nav-back{font-size:13px;padding:8px 10px;}
+  .nav-right .btn{font-size:13px!important;padding:10px 14px!important;}
+}
 .phead{position:relative;overflow:hidden;background:radial-gradient(120% 95% at 82% -10%,var(--navy-2),transparent 55%),linear-gradient(165deg,var(--navy-deepest),var(--navy-deep));color:#fff;}
 .phead .topo{color:rgba(255,255,255,.09);}
 .phead-in{position:relative;z-index:2;padding-block:clamp(46px,6.5vw,78px);max-width:760px;}
@@ -74,6 +81,24 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
 .item p{margin:4px 0 0;font-size:14.5px;line-height:1.55;color:var(--muted);font-weight:600;}
 .badge-prog{font-size:11px;font-weight:800;color:var(--dim);}
 .foundations-note{background:var(--navy-tint);border:1px solid var(--line-cool);border-radius:var(--r);padding:16px 20px;font-size:14.5px;font-weight:600;color:var(--ink-soft);margin-bottom:4px;}
+/* panel de estado actual */
+.status{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--forest);border-radius:var(--r);padding:22px 24px;box-shadow:var(--shadow-sm);margin-bottom:clamp(30px,4vw,46px);}
+.status h2{font-size:20px;color:var(--ink);margin-bottom:5px;}
+.status .status-sub{font-size:14px;font-weight:600;color:var(--muted);margin:0 0 16px;}
+.status-rows{display:flex;flex-direction:column;gap:11px;}
+.status-row{display:flex;align-items:flex-start;gap:12px;font-size:14.5px;font-weight:600;color:var(--ink-soft);line-height:1.5;}
+.status-flag{flex-shrink:0;font-size:10.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:5px 11px;margin-top:1px;}
+.status-flag.now{background:var(--gold-tint);color:var(--gold-dp);}
+.status-flag.soon{background:var(--navy-tint);color:var(--navy);}
+.status-row b{color:var(--ink);font-weight:800;}
+/* marco de archivo histórico */
+.archive-head{border-top:2px solid var(--line);padding-top:clamp(26px,3.5vw,38px);}
+.archive-head h2{font-size:clamp(21px,2.6vw,26px);color:var(--ink);}
+.archive-note{margin:12px 0 0;font-size:14px;line-height:1.55;font-weight:600;color:var(--muted);max-width:72ch;}
+.archive-head + .rel{border-top:none;}
+.arch-tag{display:inline-block;margin-top:9px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:4px 10px;line-height:1.3;}
+.chip.superseded{background:var(--paper-2);color:var(--muted);}
+.superseded-note{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;font-weight:700;color:var(--muted);line-height:1.5;}
 .cta{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--navy-deep),var(--navy-deepest));color:#fff;padding-block:clamp(48px,7vw,84px);}
 .cta .topo{color:rgba(255,255,255,.08);}
 .cta-in{position:relative;z-index:2;text-align:center;max-width:640px;margin:0 auto;}
@@ -123,7 +148,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
   <div class="wrap phead-in">
     <span class="pill"><span class="dot"></span> Actualizaciones del producto</span>
     <h1>Novedades en <span class="gold">TrailMark.</span></h1>
-    <p>TrailMark está en desarrollo activo antes de su lanzamiento a las asociaciones. Esto es lo que hemos estado construyendo: nuevos programas, herramientas para las asociaciones y las protecciones que resguardan los datos de sus miembros.</p>
+    <p>TrailMark PCM llegará próximamente. La plataforma de <b>Conquistadores</b> está en pruebas limitadas con un grupo selecto de iglesias, y las suscripciones públicas aún no están abiertas. A continuación se resume la situación actual, seguida de un registro archivado del desarrollo anterior.</p>
   </div>
 </section>
 
@@ -131,30 +156,60 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
 <div class="log">
   <div class="wrap">
 
-    <!-- ── 17 DE JULIO DE 2026 — Guía Mayor pasa a Próximamente ── -->
-    <div class="rel">
-      <div class="rel-when">
-        <div class="m">17 de julio de 2026</div>
-        <div class="tagline">Enfocados en Aventureros y Conquistadores</div>
-      </div>
-      <div class="items">
-        <div class="item">
-          <div class="item-top"><span class="chip security">Actualización</span><h4>Guía Mayor pasa a "Próximamente" <span class="badge-prog">· Plataforma</span></h4></div>
-          <p>TrailMark ahora se enfoca en los dos programas que más iglesias dirigen: <b>Aventureros</b> y <b>Conquistadores</b>. El módulo de Guía Mayor (abajo) queda como programa <b>próximamente</b> y está oculto en la aplicación por ahora; no se eliminó ningún dato de los clubes. Una sola licencia de iglesia cubre ambos programas activos. Cuando Guía Mayor regrese, se ofrecerá bajo su propia licencia y plan.</p>
+    <!-- ══ ESTADO ACTUAL — la única sección que describe la situación actual ══ -->
+    <div class="status">
+      <h2>La situación de TrailMark hoy</h2>
+      <p class="status-sub">Esta es la declaración actual y autorizada de la situación. Todo lo que aparece debajo es historial.</p>
+      <div class="status-rows">
+        <div class="status-row">
+          <span class="status-flag now">Pruebas limitadas</span>
+          <span><b>Conquistadores</b> — la plataforma está en pruebas controladas con un grupo selecto de iglesias: listas, investidura en los seis niveles, especialidades, asistencia y puntos, actividades del club, seguimiento del personal y de las verificaciones de antecedentes, y el informe mensual a la asociación. No está disponible de forma general.</span>
+        </div>
+        <div class="status-row">
+          <span class="status-flag soon">Próximamente</span>
+          <span><b>Suscripciones</b> — no están abiertas. Cuando se abran, TrailMark se ofrecerá a través de las asociaciones para sus iglesias y directamente a iglesias individuales. No se ha anunciado una fecha de lanzamiento.</span>
+        </div>
+        <div class="status-row">
+          <span class="status-flag soon">Próximamente</span>
+          <span><b>Aventureros</b> — en desarrollo y no forma parte de la prueba actual de Conquistadores. Llegará después del lanzamiento de Conquistadores; no hay fecha, y lo anunciaremos cuando esté listo.</span>
         </div>
       </div>
     </div>
 
-    <!-- ── JULIO 2026 ── -->
+    <!-- ══ HISTORIAL ARCHIVADO — sustituido; no describe la disponibilidad actual ══ -->
+    <div class="archive-head">
+      <h2>Historial de novedades archivado</h2>
+      <p class="archive-note">Las entradas con fecha que aparecen a continuación son un registro histórico del desarrollo, conservado como referencia. <b>Describen el producto tal como estaba en esas fechas y no describen lo que está disponible hoy.</b> Algunas entradas mencionan programas, módulos y condiciones de licencia que desde entonces se han modificado, apartado o retirado de TrailMark. Para la disponibilidad actual, consulte «La situación de TrailMark hoy» más arriba.</p>
+    </div>
+
+    <!-- ── 17 DE JULIO DE 2026 (archivado) ── -->
+    <div class="rel">
+      <div class="rel-when">
+        <div class="m">17 de julio de 2026</div>
+        <div class="tagline">Reducción del alcance de programas</div>
+        <span class="arch-tag">Archivado · sustituido</span>
+      </div>
+      <div class="items">
+        <div class="item">
+          <div class="item-top"><span class="chip superseded">Actualización archivada</span><h4>Guía Mayor queda apartado <span class="badge-prog">· Plataforma</span></h4></div>
+          <p>En esa fecha, el módulo de Guía Mayor (véanse las entradas siguientes) quedó apartado y oculto en la aplicación; no se eliminó ningún dato de los clubes.</p>
+          <p class="superseded-note">Sustituido. El alcance de programas descrito en esta entrada ya no es exacto. Consulte «La situación de TrailMark hoy» al inicio de esta página.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── JULIO 2026 (archivado) ── -->
     <div class="rel">
       <div class="rel-when">
         <div class="m">Julio de 2026</div>
         <div class="tagline">Guía Mayor, sobre el currículo oficial</div>
+        <span class="arch-tag">Archivado · módulo ya retirado</span>
       </div>
       <div class="items">
+        <div class="foundations-note">Estas entradas registran el trabajo en el módulo de Guía Mayor tal como estaba en julio de 2026. Ese módulo ya no forma parte de TrailMark, y nada en esta sección describe un programa que se pueda licenciar o usar hoy.</div>
         <div class="item">
           <div class="item-top"><span class="chip new">Nuevo</span><h4>El currículo oficial de Guía Mayor de la NAD <span class="badge-prog">· Guía Mayor</span></h4></div>
-          <p>El programa de Guía Mayor ahora sigue el camino oficial de la División Norteamericana hacia la investidura: los prerrequisitos —incluida su elección entre las tres certificaciones básicas de personal—, las Secciones I–V, las opciones de la sección Comparte y la ventana de uno a tres años (con apoyo para adaptaciones). Los candidatos trabajan con el Portafolio oficial; TrailMark lleva el registro.</p>
+          <p>El programa de Guía Mayor seguía el camino oficial de la División Norteamericana hacia la investidura: los prerrequisitos —incluida la elección entre las tres certificaciones básicas de personal—, las Secciones I–V, las opciones de la sección Comparte y la ventana de uno a tres años (con apoyo para adaptaciones). Los candidatos trabajaban con el Portafolio oficial; TrailMark llevaba el registro.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">Nuevo</span><h4>Registro de lectura del Plan Encuentro <span class="badge-prog">· Guía Mayor</span></h4></div>
@@ -162,7 +217,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">Nuevo</span><h4>Firmas del mentor, como en la tarjeta de registro <span class="badge-prog">· Guía Mayor</span></h4></div>
-          <p>Cada requisito ahora lleva una firma formal —quién firmó, con qué función y cuándo— reflejando las líneas de inicial y fecha de la tarjeta de registro oficial. Las funciones del personal siguen las descripciones del Manual del Club de Guías Mayores, y cada mentor firma por sus propios candidatos.</p>
+          <p>Cada requisito llevaba una firma formal —quién firmó, con qué función y cuándo— reflejando las líneas de inicial y fecha de la tarjeta de registro oficial. Las funciones del personal seguían las descripciones del Manual del Club de Guías Mayores, y cada mentor firmaba por sus propios candidatos.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">Nuevo</span><h4>Reuniones del club y asistencia <span class="badge-prog">· Guía Mayor</span></h4></div>
@@ -174,11 +229,11 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
         </div>
         <div class="item">
           <div class="item-top"><span class="chip improved">Mejorado</span><h4>El sendero del Guía Mayor <span class="badge-prog">· Guía Mayor</span></h4></div>
-          <p>Cada sección ahora muestra sus requisitos como puntos de referencia a lo largo de un sendero serpenteante —sellos dorados para lo firmado, un marcador para el punto actual y un banderín que se iza cuando la sección está completa. Vea de un vistazo todo el camino de cada candidato.</p>
+          <p>Cada sección mostraba sus requisitos como puntos de referencia a lo largo de un sendero serpenteante —sellos dorados para lo firmado, un marcador para el punto actual y un banderín que se izaba cuando la sección estaba completa.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip improved">Mejorado</span><h4>Evidencias del portafolio, como debe ser <span class="badge-prog">· Guía Mayor</span></h4></div>
-          <p>Las entradas de evidencia ahora tienen tipo —documento, foto, video o nota escrita— con un título y un enlace opcional para compartir. El portafolio sigue siendo del candidato; TrailMark registra lo que el mentor revisó y firmó.</p>
+          <p>Las entradas de evidencia tenían tipo —documento, foto, video o nota escrita— con un título y un enlace opcional para compartir. El portafolio seguía siendo del candidato; TrailMark registraba lo que el mentor revisó y firmó.</p>
         </div>
       </div>
     </div>
@@ -188,6 +243,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
       <div class="rel-when">
         <div class="m">Junio de 2026</div>
         <div class="tagline">Informes, funciones y privacidad</div>
+        <span class="arch-tag">Archivado · a junio de 2026</span>
       </div>
       <div class="items">
         <div class="item">
@@ -196,11 +252,12 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">Nuevo</span><h4>Informes de Aventureros a la asociación <span class="badge-prog">· Aventureros</span></h4></div>
-          <p>Los clubes de Aventureros pueden enviar un informe bimestral a su asociación —igual que los clubes de Conquistadores informan cada mes, para que todo el campo informe de la misma manera.</p>
+          <p>Se construyó el informe bimestral a la asociación para el módulo de Aventureros que entonces estaba en desarrollo, igual que los clubes de Conquistadores informan cada mes.</p>
+          <p class="superseded-note">Aventureros no está disponible hoy. Consulte «La situación de TrailMark hoy» al inicio de esta página.</p>
         </div>
         <div class="item">
-          <div class="item-top"><span class="chip new">Nuevo</span><h4>Certificados imprimibles para cada programa</h4></div>
-          <p>Genere certificados personalizados para Aventureros, Conquistadores y Guía Mayor, cada uno con su propio título y líneas de firma —listos para imprimir o guardar como PDF.</p>
+          <div class="item-top"><span class="chip new">Nuevo</span><h4>Certificados imprimibles</h4></div>
+          <p>Certificados personalizados con títulos y líneas de firma por programa, listos para imprimir o guardar como PDF. En ese momento abarcaban todos los programas que había en la aplicación.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip security">Seguridad y privacidad</span><h4>Controles de privacidad familiar y médica más sólidos</h4></div>
@@ -222,24 +279,28 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
       <div class="rel-when">
         <div class="m">Antes en 2026</div>
         <div class="tagline">Bases de la plataforma</div>
+        <span class="arch-tag">Archivado · alcance ya modificado</span>
       </div>
       <div class="items">
-        <div class="foundations-note">El núcleo de TrailMark tomó forma durante la primera mitad de 2026 —tres programas completos y la capa de asociación que los une.</div>
+        <div class="foundations-note">El núcleo de TrailMark tomó forma durante la primera mitad de 2026 —los módulos de programa de entonces y la capa de asociación que los une. El conjunto de programas descrito aquí ha cambiado desde entonces; esta sección es un registro de ese trabajo inicial, no una declaración de lo que está disponible.</div>
         <div class="item">
           <div class="item-top"><span class="chip new">Nuevo</span><h4>El programa de Aventureros <span class="badge-prog">· 4 a 9 años</span></h4></div>
-          <p>Un hogar alegre y colorido para los miembros más pequeños: seis clases con progreso de estrellas, premios y fichas coloridas, requisitos por clase y un «mapa de aventuras» pensado para los niños.</p>
+          <p>Trabajo inicial en un hogar alegre y colorido para los miembros más pequeños: seis clases con progreso de estrellas, premios y fichas coloridas, requisitos por clase y un «mapa de aventuras» pensado para los niños.</p>
+          <p class="superseded-note">Aventureros no está disponible hoy —sigue en desarrollo y llegará próximamente.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">Nuevo</span><h4>Guía Mayor <span class="badge-prog">· 16+ y líderes</span></h4></div>
-          <p>Un camino real de liderazgo —los candidatos avanzan por pruebas con la aprobación de un mentor, hacia la investidura y un certificado.</p>
+          <p>Un camino de liderazgo en el que los candidatos avanzaban por pruebas con la aprobación de un mentor, hacia la investidura y un certificado.</p>
+          <p class="superseded-note">Este módulo ya no forma parte de TrailMark.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">Nuevo</span><h4>Portal y panel de la Asociación</h4></div>
           <p>Una vista en vivo de cada iglesia licenciada, una bandeja de informes mensuales para que lleguen automáticamente, y conteos de jóvenes desde un solo club hasta todo el campo.</p>
         </div>
         <div class="item">
-          <div class="item-top"><span class="chip new">Nuevo</span><h4>Una licencia, los tres programas</h4></div>
-          <p>Una sola licencia de iglesia habilita Aventureros, Conquistadores y Guía Mayor juntos —nada que comprar por separado.</p>
+          <div class="item-top"><span class="chip new">Nuevo</span><h4>Una licencia por iglesia</h4></div>
+          <p>La licencia de iglesia se estableció de modo que una sola licencia habilite juntos los programas de la iglesia, sin nada que comprar por separado.</p>
+          <p class="superseded-note">Sustituido. TrailMark no está abierto a suscripciones y no se ofrece ninguna licencia pública. Consulte «La situación de TrailMark hoy» al inicio de esta página.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">Nuevo</span><h4>Informe mensual a la asociación <span class="badge-prog">· Conquistadores</span></h4></div>
@@ -261,8 +322,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
   <div class="wrap cta-in">
     <span class="eyebrow on-dark" style="justify-content:center;color:var(--gold-br);">Y más en camino</span>
     <h2>¿La quiere para su asociación?</h2>
-    <p>TrailMark se licencia directamente a las asociaciones. Cuéntenos sobre su campo y guiaremos a su equipo.</p>
-    <a class="btn btn-primary btn-lg" style="padding:17px 30px;font-size:16px;" href="/#contact">Lleve TrailMark a su asociación</a>
+    <p>Las suscripciones aún no están abiertas. Cuéntenos sobre su campo y lo mantendremos al tanto mientras pasamos de las pruebas al lanzamiento.</p>
+    <a class="btn btn-primary btn-lg" style="padding:17px 30px;font-size:16px;" href="/#contact">Reciba novedades del lanzamiento</a>
   </div>
 </section>
 

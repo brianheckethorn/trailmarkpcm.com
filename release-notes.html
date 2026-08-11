@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Release Notes — TrailMark PCM</title>
-<meta name="description" content="What's new in TrailMark PCM — product updates and new features across Adventurers, Pathfinders, and the Conference Portal.">
+<meta name="description" content="What's new in TrailMark PCM — the Pathfinder platform is in limited testing with select churches, and public subscriptions are coming soon through conferences or directly to individual churches. Includes an archived record of earlier development.">
 <!-- Unlisted: shareable with customers, kept out of search indexes. -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" href="trailmark-icon-256.png">
@@ -48,6 +48,13 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:14px;}
 .nav-back{font-size:14px;font-weight:700;color:var(--ink-soft);padding:9px 13px;border-radius:9px;}
 .nav-back:hover{background:rgba(255,255,255,.7);color:var(--navy);}
+/* narrow screens: let the nav wrap instead of pushing past the viewport */
+@media(max-width:640px){
+  .nav-inner{flex-wrap:wrap;gap:6px 14px;height:auto;min-height:68px;padding-block:10px;}
+  .nav-right{margin-left:0;flex-wrap:wrap;gap:6px;}
+  .nav-back{font-size:13px;padding:8px 10px;}
+  .nav-right .btn{font-size:13px!important;padding:10px 14px!important;}
+}
 /* hero */
 .phead{position:relative;overflow:hidden;background:radial-gradient(120% 95% at 82% -10%,var(--navy-2),transparent 55%),linear-gradient(165deg,var(--navy-deepest),var(--navy-deep));color:#fff;}
 .phead .topo{color:rgba(255,255,255,.09);}
@@ -78,6 +85,24 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
 .badge-prog{font-size:11px;font-weight:800;color:var(--dim);}
 /* foundations intro */
 .foundations-note{background:var(--navy-tint);border:1px solid var(--line-cool);border-radius:var(--r);padding:16px 20px;font-size:14.5px;font-weight:600;color:var(--ink-soft);margin-bottom:4px;}
+/* current status panel */
+.status{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--forest);border-radius:var(--r);padding:22px 24px;box-shadow:var(--shadow-sm);margin-bottom:clamp(30px,4vw,46px);}
+.status h2{font-size:20px;color:var(--ink);margin-bottom:5px;}
+.status .status-sub{font-size:14px;font-weight:600;color:var(--muted);margin:0 0 16px;}
+.status-rows{display:flex;flex-direction:column;gap:11px;}
+.status-row{display:flex;align-items:flex-start;gap:12px;font-size:14.5px;font-weight:600;color:var(--ink-soft);line-height:1.5;}
+.status-flag{flex-shrink:0;font-size:10.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:5px 11px;margin-top:1px;}
+.status-flag.now{background:var(--gold-tint);color:var(--gold-dp);}
+.status-flag.soon{background:var(--navy-tint);color:var(--navy);}
+.status-row b{color:var(--ink);font-weight:800;}
+/* archive framing for the dated history below */
+.archive-head{border-top:2px solid var(--line);padding-top:clamp(26px,3.5vw,38px);}
+.archive-head h2{font-size:clamp(21px,2.6vw,26px);color:var(--ink);}
+.archive-note{margin:12px 0 0;font-size:14px;line-height:1.55;font-weight:600;color:var(--muted);max-width:72ch;}
+.archive-head + .rel{border-top:none;}
+.arch-tag{display:inline-block;margin-top:9px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:4px 10px;line-height:1.3;}
+.chip.superseded{background:var(--paper-2);color:var(--muted);}
+.superseded-note{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;font-weight:700;color:var(--muted);line-height:1.5;}
 /* CTA / footer */
 .cta{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--navy-deep),var(--navy-deepest));color:#fff;padding-block:clamp(48px,7vw,84px);}
 .cta .topo{color:rgba(255,255,255,.08);}
@@ -128,7 +153,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
   <div class="wrap phead-in">
     <span class="pill"><span class="dot"></span> Product updates</span>
     <h1>What's new in <span class="gold">TrailMark.</span></h1>
-    <p>TrailMark is in active development ahead of its conference launch. Here's what we've been building — new programs, tools for conferences, and the safeguards that protect your members' data.</p>
+    <p>TrailMark PCM is coming soon. The <b>Pathfinder</b> platform is in limited testing with a select group of churches, and public subscriptions are not open yet. Current status is summarized below, followed by an archived record of earlier development.</p>
   </div>
 </section>
 
@@ -136,30 +161,60 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
 <div class="log">
   <div class="wrap">
 
-    <!-- ── JULY 17, 2026 — MG moved to Coming Soon ── -->
-    <div class="rel">
-      <div class="rel-when">
-        <div class="m">July 17, 2026</div>
-        <div class="tagline">Focusing on Adventurers &amp; Pathfinders</div>
-      </div>
-      <div class="items">
-        <div class="item">
-          <div class="item-top"><span class="chip security">Update</span><h4>Master Guide moves to Coming Soon <span class="badge-prog">· Platform</span></h4></div>
-          <p>TrailMark now focuses on the two programs churches run most — <b>Adventurers</b> and <b>Pathfinders</b>. The Master Guide module (below) has been set aside as a <b>coming-soon</b> program and is hidden in the app for now; no club data was removed. One church license covers both live programs. When Master Guide returns, it will be offered under its own license and plan.</p>
+    <!-- ══ CURRENT STATUS — the only section that describes where things stand now ══ -->
+    <div class="status">
+      <h2>Where TrailMark stands today</h2>
+      <p class="status-sub">This is the current, authoritative statement of status. Everything below it is history.</p>
+      <div class="status-rows">
+        <div class="status-row">
+          <span class="status-flag now">Limited testing</span>
+          <span><b>Pathfinders</b> — the platform is in controlled testing with a select group of churches: rosters, investiture across all six levels, honors, attendance &amp; points, club activities, staff and background-check tracking, and the monthly conference report. It is not generally available.</span>
+        </div>
+        <div class="status-row">
+          <span class="status-flag soon">Coming soon</span>
+          <span><b>Subscriptions</b> — not open. When they open, TrailMark will be offered through conferences for their churches and directly to individual churches. No launch date has been announced.</span>
+        </div>
+        <div class="status-row">
+          <span class="status-flag soon">Coming soon</span>
+          <span><b>Adventurers</b> — in development and not part of the current Pathfinder test. It comes after the Pathfinder launch; no date is set, and we will announce it when it is ready.</span>
         </div>
       </div>
     </div>
 
-    <!-- ── JULY 2026 ── -->
+    <!-- ══ ARCHIVED HISTORY — superseded; does not describe current availability ══ -->
+    <div class="archive-head">
+      <h2>Archived release history</h2>
+      <p class="archive-note">The dated entries below are a historical development record, kept for reference. <b>They describe the product as it was on those dates and do not describe what is available today.</b> Some entries name programs, modules, and licensing terms that have since been changed, set aside, or removed from TrailMark. For current availability, see “Where TrailMark stands today” above.</p>
+    </div>
+
+    <!-- ── JULY 17, 2026 (archived) ── -->
+    <div class="rel">
+      <div class="rel-when">
+        <div class="m">July 17, 2026</div>
+        <div class="tagline">Narrowing the program scope</div>
+        <span class="arch-tag">Archived · superseded</span>
+      </div>
+      <div class="items">
+        <div class="item">
+          <div class="item-top"><span class="chip superseded">Archived update</span><h4>Master Guide set aside <span class="badge-prog">· Platform</span></h4></div>
+          <p>On this date the Master Guide module (see the entries below it) was set aside and hidden in the app; no club data was removed.</p>
+          <p class="superseded-note">Superseded. The program scope described in this entry is no longer accurate. See “Where TrailMark stands today” at the top of this page.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── JULY 2026 (archived) ── -->
     <div class="rel">
       <div class="rel-when">
         <div class="m">July 2026</div>
         <div class="tagline">Master Guide, built on the official curriculum</div>
+        <span class="arch-tag">Archived · module since removed</span>
       </div>
       <div class="items">
+        <div class="foundations-note">These entries record work on the Master Guide module as it stood in July 2026. That module is no longer part of TrailMark, and nothing in this section describes a program you can license or use today.</div>
         <div class="item">
           <div class="item-top"><span class="chip new">New</span><h4>The official NAD Master Guide curriculum <span class="badge-prog">· Master Guide</span></h4></div>
-          <p>The Master Guide program now tracks the North American Division's official path to investiture: prerequisites — including your choice of the three Basic Staff certifications — Sections I–V, Share options, and the one-to-three-year window (with accommodation support). Candidates work from the official Portfolio; TrailMark keeps the record.</p>
+          <p>The Master Guide program tracked the North American Division's official path to investiture: prerequisites — including your choice of the three Basic Staff certifications — Sections I–V, Share options, and the one-to-three-year window (with accommodation support). Candidates worked from the official Portfolio; TrailMark kept the record.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">New</span><h4>Encounter reading tracker <span class="badge-prog">· Master Guide</span></h4></div>
@@ -167,7 +222,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">New</span><h4>Mentor sign-offs, the Record Card way <span class="badge-prog">· Master Guide</span></h4></div>
-          <p>Every requirement now carries a proper sign-off — who signed, in what role, and when — mirroring the official Record Card's Initial &amp; Date lines. Club staff roles follow the Master Guide Club Manual's job descriptions, and mentors sign for their own candidates.</p>
+          <p>Every requirement carried a proper sign-off — who signed, in what role, and when — mirroring the official Record Card's Initial &amp; Date lines. Club staff roles followed the Master Guide Club Manual's job descriptions, and mentors signed for their own candidates.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">New</span><h4>Club meetings &amp; attendance <span class="badge-prog">· Master Guide</span></h4></div>
@@ -179,11 +234,11 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
         </div>
         <div class="item">
           <div class="item-top"><span class="chip improved">Improved</span><h4>The Master Guide Trail <span class="badge-prog">· Master Guide</span></h4></div>
-          <p>Every section now shows its requirements as waypoints along a winding trail — gold seals for what's signed, a marker for where you are, and a pennant that rises when the section is complete. See each candidate's whole journey at a glance.</p>
+          <p>Each section showed its requirements as waypoints along a winding trail — gold seals for what was signed, a marker for the current position, and a pennant that rose when the section was complete.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip improved">Improved</span><h4>Portfolio evidence, the right way <span class="badge-prog">· Master Guide</span></h4></div>
-          <p>Evidence entries are now typed — document, photo, video, or written note — with a title and an optional share link. The portfolio stays the candidate's own; TrailMark records what the mentor reviewed and signed.</p>
+          <p>Evidence entries were typed — document, photo, video, or written note — with a title and an optional share link. The portfolio stayed the candidate's own; TrailMark recorded what the mentor reviewed and signed.</p>
         </div>
       </div>
     </div>
@@ -193,6 +248,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
       <div class="rel-when">
         <div class="m">June 2026</div>
         <div class="tagline">Reporting, roles &amp; privacy</div>
+        <span class="arch-tag">Archived · as of June 2026</span>
       </div>
       <div class="items">
         <div class="item">
@@ -201,11 +257,12 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">New</span><h4>Adventurer conference reporting <span class="badge-prog">· Adventurers</span></h4></div>
-          <p>Adventurer clubs can send a bi-monthly report up to their conference — matching the way Pathfinder clubs report each month, so the whole field reports the same way.</p>
+          <p>Bi-monthly conference reporting was built for the Adventurer module then in development, matching the way Pathfinder clubs report each month.</p>
+          <p class="superseded-note">Adventurers is not available today. See “Where TrailMark stands today” at the top of this page.</p>
         </div>
         <div class="item">
-          <div class="item-top"><span class="chip new">New</span><h4>Printable certificates for every program</h4></div>
-          <p>Generate personalized certificates for Adventurers, Pathfinders, and Master Guide, each with its own title and signature lines — ready to print or save as a PDF.</p>
+          <div class="item-top"><span class="chip new">New</span><h4>Printable certificates</h4></div>
+          <p>Personalized certificates with per-program titles and signature lines, ready to print or save as a PDF. At the time this covered every program then in the app.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip security">Security &amp; privacy</span><h4>Stronger family &amp; medical privacy controls</h4></div>
@@ -227,24 +284,28 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
       <div class="rel-when">
         <div class="m">Earlier in 2026</div>
         <div class="tagline">Platform foundations</div>
+        <span class="arch-tag">Archived · scope since changed</span>
       </div>
       <div class="items">
-        <div class="foundations-note">The core of TrailMark came together over the first half of 2026 — three complete programs and the conference layer that ties them together.</div>
+        <div class="foundations-note">The core of TrailMark came together over the first half of 2026 — the program modules of the time and the conference layer that ties them together. The set of programs described here has since changed; this section is a record of that early work, not a statement of what is available.</div>
         <div class="item">
           <div class="item-top"><span class="chip new">New</span><h4>The Adventurers program <span class="badge-prog">· Ages 4–9</span></h4></div>
-          <p>A bright, playful home for the littlest members: six classes with star progress, colorful awards and chips, per-class requirements, and a kid-facing "adventure map."</p>
+          <p>Early work on a bright, playful home for the littlest members: six classes with star progress, colorful awards and chips, per-class requirements, and a kid-facing "adventure map."</p>
+          <p class="superseded-note">Adventurers is not available today — it is still in development and coming soon.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">New</span><h4>Master Guide <span class="badge-prog">· Ages 16+ &amp; leaders</span></h4></div>
-          <p>A regal leadership path — candidates progress through trials with mentor sign-off, toward investiture and a certificate.</p>
+          <p>A leadership path in which candidates progressed through trials with mentor sign-off, toward investiture and a certificate.</p>
+          <p class="superseded-note">This module is no longer part of TrailMark.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">New</span><h4>Conference Portal &amp; dashboard</h4></div>
           <p>A live view of every licensed church, a monthly-report inbox so reports arrive automatically, and youth counts from a single club up to the whole field.</p>
         </div>
         <div class="item">
-          <div class="item-top"><span class="chip new">New</span><h4>One license, all three programs</h4></div>
-          <p>A single church license unlocks Adventurers, Pathfinders, and Master Guide together — nothing to buy à la carte.</p>
+          <div class="item-top"><span class="chip new">New</span><h4>One license per church</h4></div>
+          <p>Church licensing was set up so that a single license unlocks the church's programs together, with nothing to buy à la carte.</p>
+          <p class="superseded-note">Superseded. TrailMark is not open for subscriptions, and no public license is on offer. See “Where TrailMark stands today” at the top of this page.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="chip new">New</span><h4>Monthly conference report <span class="badge-prog">· Pathfinders</span></h4></div>
@@ -266,8 +327,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spa
   <div class="wrap cta-in">
     <span class="eyebrow on-dark" style="justify-content:center;color:var(--gold-br);">More on the way</span>
     <h2>Want it for your conference?</h2>
-    <p>TrailMark is licensed conference-direct. Tell us about your field and we'll walk your team through it.</p>
-    <a class="btn btn-primary btn-lg" style="padding:17px 30px;font-size:16px;" href="/#contact">Bring TrailMark to your conference</a>
+    <p>Subscriptions aren't open yet. Tell us about your field and we'll keep you posted as we move from testing to launch.</p>
+    <a class="btn btn-primary btn-lg" style="padding:17px 30px;font-size:16px;" href="/#contact">Get launch updates</a>
   </div>
 </section>
 
